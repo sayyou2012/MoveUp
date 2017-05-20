@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MoveHistoryListViewController.h
 //  MoveUp
 //
 //  Created by sayyou2012 on 17/5/20.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MoveHistoryListViewController : UIViewController
 
 @end
-
