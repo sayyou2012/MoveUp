@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewControllerDelegate.h"
+
+@protocol RootTabBarControllerDelegate <BaseViewControllerDelegate>
+
+
+@end
 
 @interface RootTabBarController : UITabBarController
+
+@property (nonatomic, weak) id<RootTabBarControllerDelegate> rootTabBarControllerDelegate;
 
 @end

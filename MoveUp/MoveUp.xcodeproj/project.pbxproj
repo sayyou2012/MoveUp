@@ -23,6 +23,14 @@
 		D06898831ED04422006FBA77 /* SetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06898811ED04422006FBA77 /* SetViewController.xib */; };
 		D06898871ED046B5006FBA77 /* MoveHistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D06898851ED046B5006FBA77 /* MoveHistoryListViewController.m */; };
 		D06898881ED046B5006FBA77 /* MoveHistoryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06898861ED046B5006FBA77 /* MoveHistoryListViewController.xib */; };
+		D06898961ED057DF006FBA77 /* BaseControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D06898951ED057DF006FBA77 /* BaseControl.m */; };
+		D068989A1ED05803006FBA77 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D06898981ED05803006FBA77 /* BaseViewController.m */; };
+		D068989B1ED05803006FBA77 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06898991ED05803006FBA77 /* BaseViewController.xib */; };
+		D06898A21ED05E91006FBA77 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D06898A01ED05E91006FBA77 /* RootViewController.m */; };
+		D06898A31ED05E91006FBA77 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06898A11ED05E91006FBA77 /* RootViewController.xib */; };
+		D06898A61ED05EC8006FBA77 /* RootControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D06898A51ED05EC8006FBA77 /* RootControl.m */; };
+		D06898A91ED06975006FBA77 /* RootTabBarControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D06898A81ED06975006FBA77 /* RootTabBarControl.m */; };
+		D06898AC1ED0A1FB006FBA77 /* RootTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06898AB1ED0A1FB006FBA77 /* RootTabBarController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +60,20 @@
 		D06898841ED046B5006FBA77 /* MoveHistoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveHistoryListViewController.h; sourceTree = "<group>"; };
 		D06898851ED046B5006FBA77 /* MoveHistoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveHistoryListViewController.m; sourceTree = "<group>"; };
 		D06898861ED046B5006FBA77 /* MoveHistoryListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoveHistoryListViewController.xib; sourceTree = "<group>"; };
+		D06898941ED057DF006FBA77 /* BaseControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseControl.h; sourceTree = "<group>"; };
+		D06898951ED057DF006FBA77 /* BaseControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseControl.m; sourceTree = "<group>"; };
+		D06898971ED05803006FBA77 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		D06898981ED05803006FBA77 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		D06898991ED05803006FBA77 /* BaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseViewController.xib; sourceTree = "<group>"; };
+		D068989F1ED05E91006FBA77 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		D06898A01ED05E91006FBA77 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		D06898A11ED05E91006FBA77 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		D06898A41ED05EC8006FBA77 /* RootControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootControl.h; sourceTree = "<group>"; };
+		D06898A51ED05EC8006FBA77 /* RootControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootControl.m; sourceTree = "<group>"; };
+		D06898A71ED06975006FBA77 /* RootTabBarControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarControl.h; sourceTree = "<group>"; };
+		D06898A81ED06975006FBA77 /* RootTabBarControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarControl.m; sourceTree = "<group>"; };
+		D06898AA1ED08B64006FBA77 /* BaseViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewControllerDelegate.h; sourceTree = "<group>"; };
+		D06898AB1ED0A1FB006FBA77 /* RootTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootTabBarController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +137,10 @@
 		D068984B1ED03615006FBA77 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D06898971ED05803006FBA77 /* BaseViewController.h */,
+				D06898981ED05803006FBA77 /* BaseViewController.m */,
+				D06898991ED05803006FBA77 /* BaseViewController.xib */,
+				D06898AA1ED08B64006FBA77 /* BaseViewControllerDelegate.h */,
 				D06898531ED03B7F006FBA77 /* Root */,
 				D06898641ED0417C006FBA77 /* Move */,
 				D06898631ED0417C006FBA77 /* History */,
@@ -127,7 +153,10 @@
 		D068984D1ED03624006FBA77 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D06898941ED057DF006FBA77 /* BaseControl.h */,
+				D06898951ED057DF006FBA77 /* BaseControl.m */,
 				D06898901ED0542A006FBA77 /* RootControl */,
+				D068988D1ED0542A006FBA77 /* MoveControl */,
 				D06898891ED0542A006FBA77 /* HistoryControl */,
 				D06898911ED0542A006FBA77 /* SetControl */,
 				D068988C1ED0542A006FBA77 /* IntroduceControl */,
@@ -138,8 +167,12 @@
 		D06898531ED03B7F006FBA77 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				D068989F1ED05E91006FBA77 /* RootViewController.h */,
+				D06898A01ED05E91006FBA77 /* RootViewController.m */,
+				D06898A11ED05E91006FBA77 /* RootViewController.xib */,
 				D06898541ED03B7F006FBA77 /* RootTabBarController.h */,
 				D06898551ED03B7F006FBA77 /* RootTabBarController.m */,
+				D06898AB1ED0A1FB006FBA77 /* RootTabBarController.xib */,
 				D068985E1ED03F95006FBA77 /* RootNavigationController.h */,
 				D068985F1ED03F95006FBA77 /* RootNavigationController.m */,
 			);
@@ -257,14 +290,16 @@
 				D06898921ED05488006FBA77 /* MovingControl */,
 				D06898931ED05488006FBA77 /* ReadyControl */,
 			);
-			name = MoveControl;
-			path = ../MoveControl;
+			path = MoveControl;
 			sourceTree = "<group>";
 		};
 		D06898901ED0542A006FBA77 /* RootControl */ = {
 			isa = PBXGroup;
 			children = (
-				D068988D1ED0542A006FBA77 /* MoveControl */,
+				D06898A41ED05EC8006FBA77 /* RootControl.h */,
+				D06898A51ED05EC8006FBA77 /* RootControl.m */,
+				D06898A71ED06975006FBA77 /* RootTabBarControl.h */,
+				D06898A81ED06975006FBA77 /* RootTabBarControl.m */,
 			);
 			path = RootControl;
 			sourceTree = "<group>";
@@ -349,9 +384,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D068987E1ED0440A006FBA77 /* MoveDetailViewController.xib in Resources */,
+				D06898AC1ED0A1FB006FBA77 /* RootTabBarController.xib in Resources */,
+				D068989B1ED05803006FBA77 /* BaseViewController.xib in Resources */,
 				D06898831ED04422006FBA77 /* SetViewController.xib in Resources */,
 				D06898881ED046B5006FBA77 /* MoveHistoryListViewController.xib in Resources */,
 				D06898411ED02EEA006FBA77 /* LaunchScreen.storyboard in Resources */,
+				D06898A31ED05E91006FBA77 /* RootViewController.xib in Resources */,
 				D068983E1ED02EEA006FBA77 /* Assets.xcassets in Resources */,
 				D06898741ED04398006FBA77 /* MovingViewController.xib in Resources */,
 				D068986F1ED04340006FBA77 /* ReadyMoveViewController.xib in Resources */,
@@ -365,13 +403,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D06898961ED057DF006FBA77 /* BaseControl.m in Sources */,
+				D06898A91ED06975006FBA77 /* RootTabBarControl.m in Sources */,
 				D06898871ED046B5006FBA77 /* MoveHistoryListViewController.m in Sources */,
+				D068989A1ED05803006FBA77 /* BaseViewController.m in Sources */,
 				D06898571ED03B7F006FBA77 /* RootTabBarController.m in Sources */,
 				D06898361ED02EEA006FBA77 /* AppDelegate.m in Sources */,
 				D06898821ED04422006FBA77 /* SetViewController.m in Sources */,
+				D06898A61ED05EC8006FBA77 /* RootControl.m in Sources */,
 				D06898731ED04398006FBA77 /* MovingViewController.m in Sources */,
 				D06898611ED03F95006FBA77 /* RootNavigationController.m in Sources */,
 				D068986E1ED04340006FBA77 /* ReadyMoveViewController.m in Sources */,
+				D06898A21ED05E91006FBA77 /* RootViewController.m in Sources */,
 				D068987D1ED0440A006FBA77 /* MoveDetailViewController.m in Sources */,
 				D06898331ED02EEA006FBA77 /* main.m in Sources */,
 			);

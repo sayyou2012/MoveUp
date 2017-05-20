@@ -7,22 +7,23 @@
 //
 
 #import "AppDelegate.h"
-#import "RootNavigationController.h"
-#import "RootTabBarController.h"
+//#import "RootNavigationController.h"
+//#import "RootTabBarController.h"
+#import "RootControl.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) RootControl *rootControl;
 
 @end
 
 @implementation AppDelegate
 
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    RootTabBarController *rootTabBarVC = [[RootTabBarController alloc] init];
-    self.window.rootViewController = [[RootNavigationController alloc] initWithRootViewController:rootTabBarVC];
+    _rootControl = [[RootControl alloc] init];
+    self.window.rootViewController = _rootControl.viewController;
     [self.window makeKeyAndVisible];
     
     return YES;

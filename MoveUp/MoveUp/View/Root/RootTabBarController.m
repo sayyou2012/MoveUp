@@ -17,7 +17,8 @@
 
 @implementation RootTabBarController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     MoveHistoryListViewController *moveHistoryVC = [[MoveHistoryListViewController alloc] initWithNibName:NSStringFromClass([MoveHistoryListViewController class]) bundle:nil];
@@ -30,6 +31,12 @@
     setVC.tabBarItem.title = @"设置";
     
     [self setViewControllers:@[moveHistoryVC, readyMoveVC, setVC]];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
 }
 
 - (void)didReceiveMemoryWarning {
