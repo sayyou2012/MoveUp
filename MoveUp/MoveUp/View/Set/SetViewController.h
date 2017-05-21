@@ -6,8 +6,16 @@
 //  Copyright © 2017年 sayyou2012. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface SetViewController : UIViewController
+@protocol SetViewControllerDelegate <BaseViewControllerDelegate>
+
+
+
+@end
+
+@interface SetViewController : BaseViewController
+
+@property (nonatomic, weak) id<SetViewControllerDelegate> delegate;
 
 @end

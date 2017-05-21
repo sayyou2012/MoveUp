@@ -9,13 +9,18 @@
 #import "RootTabBarControl.h"
 #import "RootTabBarController.h"
 #import "BaseViewControllerDelegate.h"
-#import "MoveHistoryListViewController.h"
-#import "ReadyMoveViewController.h"
-#import "SetViewController.h"
+#import "MoveHistoryListControl.h"
+#import "ReadyMoveControl.h"
+#import "SetControl.h"
+
 
 @interface RootTabBarControl () <RootTabBarControllerDelegate>
 
 @property (nonatomic, strong) RootTabBarController *rootTabBarController;
+
+@property (nonatomic, strong) MoveHistoryListControl *moveHistoryListControl;
+@property (nonatomic, strong) ReadyMoveControl *readyMoveControl;
+@property (nonatomic, strong) SetControl *setControl;
 
 @end
 
@@ -32,7 +37,54 @@
     return _rootTabBarController;
 }
 
+#pragma mark - Lazy Load
+
+- (MoveHistoryListControl *)moveHistoryListControl
+{
+    if (!_moveHistoryListControl)
+    {
+        _moveHistoryListControl = [MoveHistoryListControl new];
+    }
+    
+    return _moveHistoryListControl;
+}
+
+- (ReadyMoveControl *)readyMoveControl
+{
+    if (!_readyMoveControl)
+    {
+        _readyMoveControl = [ReadyMoveControl new];
+    }
+    
+    return _readyMoveControl;
+}
+
+- (SetControl *)setControl
+{
+    if (!_setControl)
+    {
+        _setControl = [SetControl new];
+    }
+    
+    return _setControl;
+}
+
 #pragma mark - RootTabBarControllerDelegate
+
+- (void)viewWillAppear
+{
+    UIViewController *moveHistoryVC = self.moveHistoryListControl.viewController;
+    moveHistoryVC.tabBarItem.title = @"历史记录";
+    
+    UIViewController *readyMoveVC = self.readyMoveControl.viewController;
+    readyMoveVC.tabBarItem.title = @"运动";
+    
+    UIViewController *setVC = self.setControl.viewController;
+    setVC.tabBarItem.title = @"设置";
+    
+    [self.rootTabBarController setViewControllers:@[moveHistoryVC, readyMoveVC, setVC]];
+
+}
 
 
 @end

@@ -21,22 +21,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    MoveHistoryListViewController *moveHistoryVC = [[MoveHistoryListViewController alloc] initWithNibName:NSStringFromClass([MoveHistoryListViewController class]) bundle:nil];
-    moveHistoryVC.tabBarItem.title = @"历史记录";
     
-    ReadyMoveViewController *readyMoveVC = [[ReadyMoveViewController alloc] initWithNibName:NSStringFromClass([ReadyMoveViewController class]) bundle:nil];
-    readyMoveVC.tabBarItem.title = @"运动";
-    
-    SetViewController *setVC = [[SetViewController alloc] initWithNibName:NSStringFromClass([SetViewController class]) bundle:nil];
-    setVC.tabBarItem.title = @"设置";
-    
-    [self setViewControllers:@[moveHistoryVC, readyMoveVC, setVC]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
+    if ([self.rootTabBarControllerDelegate respondsToSelector:@selector(viewWillAppear)])
+    {
+        [self.rootTabBarControllerDelegate viewWillAppear];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

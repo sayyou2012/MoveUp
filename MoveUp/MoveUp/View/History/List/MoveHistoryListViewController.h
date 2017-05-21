@@ -6,8 +6,16 @@
 //  Copyright © 2017年 sayyou2012. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface MoveHistoryListViewController : UIViewController
+@protocol MoveHistoryListViewControllerDelegate <BaseViewControllerDelegate>
+
+
+
+@end
+
+@interface MoveHistoryListViewController : BaseViewController
+
+@property (nonatomic, weak) id<MoveHistoryListViewControllerDelegate> delegate;
 
 @end
