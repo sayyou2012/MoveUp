@@ -74,13 +74,13 @@
 - (void)viewWillAppear
 {
     UIViewController *moveHistoryVC = self.moveHistoryListControl.viewController;
-    
     UIViewController *readyMoveVC = self.readyMoveControl.viewController;
-    
     UIViewController *setVC = self.setControl.viewController;
     
-    [self.rootTabBarController setViewControllers:@[moveHistoryVC, readyMoveVC, setVC]];
-
+    NSArray *viewControllers = @[moveHistoryVC, readyMoveVC, setVC];
+    
+    [self.rootTabBarController setViewControllers:viewControllers];
+    self.rootTabBarController.selectedIndex = [viewControllers indexOfObject:readyMoveVC];
 }
 
 

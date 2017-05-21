@@ -15,7 +15,46 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arq-t4-yaa">
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="动起来~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwx-cL-d5F">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="oY5-OD-k3a"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="46"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.68511803670000004" green="1" blue="0.95218115520000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="xwx-cL-d5F" firstAttribute="leading" secondItem="arq-t4-yaa" secondAttribute="leading" id="Lu9-wL-cRJ"/>
+                        <constraint firstAttribute="height" constant="100" id="g2F-dT-hix"/>
+                        <constraint firstItem="xwx-cL-d5F" firstAttribute="centerY" secondItem="arq-t4-yaa" secondAttribute="centerY" id="ru5-HY-Avw"/>
+                        <constraint firstAttribute="trailing" secondItem="xwx-cL-d5F" secondAttribute="trailing" id="xC9-DT-Tui"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASd-ya-yD0">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="2Ik-5c-8h8"/>
+                        <constraint firstAttribute="height" constant="60" id="bUZ-gO-1Qm"/>
+                    </constraints>
+                    <state key="normal" title="开始"/>
+                    <connections>
+                        <action selector="startMoveButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="TgN-J2-6eH"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="0.68511803670000004" green="1" blue="0.95218115520000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="arq-t4-yaa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="KK2-pG-Vef"/>
+                <constraint firstItem="ASd-ya-yD0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="b6X-PU-VcK"/>
+                <constraint firstAttribute="bottom" secondItem="ASd-ya-yD0" secondAttribute="bottom" constant="44" id="eVt-Ih-fyS"/>
+                <constraint firstAttribute="trailing" secondItem="arq-t4-yaa" secondAttribute="trailing" id="ger-fK-v74"/>
+                <constraint firstItem="arq-t4-yaa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qu2-et-TRu"/>
+            </constraints>
+            <point key="canvasLocation" x="-323.5" y="103.5"/>
         </view>
     </objects>
 </document>

@@ -49,6 +49,7 @@
 {
     RootNavigationController *rootNavigationController = [[RootNavigationController alloc] initWithRootViewController:self.rootTabBarControl.viewController];
     
+    [rootNavigationController setNavigationBarHidden:YES];
     
 //    [self.rootVC addChildViewController:rootNavigationController];
     
