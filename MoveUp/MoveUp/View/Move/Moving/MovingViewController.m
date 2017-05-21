@@ -10,6 +10,12 @@
 
 @interface MovingViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *speedLabel;
+
 @end
 
 @implementation MovingViewController
@@ -25,6 +31,9 @@
 
 #pragma mark - UIButton Actions
 
+/**
+ 暂停运动
+ */
 - (IBAction)pauseMoveButtonTouchUpInside:(UIButton *)sender
 {
     if ([self.delegate respondsToSelector:@selector(pauseMove)])
@@ -33,6 +42,9 @@
     }
 }
 
+/**
+ 结束运动
+ */
 - (IBAction)stopMoveButtonTouchUpInside:(UIButton *)sender
 {
     if ([self.delegate respondsToSelector:@selector(stopMove)])
@@ -42,7 +54,24 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
+/**
+ 切换距离的显示方式
+ */
+- (IBAction)switchDistanceShowType:(UIButton *)sender
+{
+    
+}
+
+/**
+ 切换速度的显示方式
+ */
+- (IBAction)switchSpeedShowType:(UIButton *)sender
+{
+    
+}
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
