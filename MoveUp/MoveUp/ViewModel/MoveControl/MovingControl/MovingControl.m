@@ -27,4 +27,16 @@
     return _movingVC;
 }
 
+#pragma mark - MovingViewControllerDelegate
+
+- (void)pauseMove
+{
+    
+}
+
+- (void)stopMove
+{
+    [self.movingVC.navigationController popViewControllerAnimated:YES];
+}
+
 @end

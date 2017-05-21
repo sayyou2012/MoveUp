@@ -10,7 +10,8 @@
 
 @protocol MovingViewControllerDelegate <BaseViewControllerDelegate>
 
-
+- (void)pauseMove;
+- (void)stopMove;
 
 @end
 
