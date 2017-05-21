@@ -24,10 +24,10 @@
                         <constraint firstAttribute="height" constant="60" id="AU9-09-3fv"/>
                         <constraint firstAttribute="width" constant="60" id="hQs-kH-nT9"/>
                     </constraints>
-                    <state key="normal" title="暂停"/>
-                    <state key="selected" title="继续"/>
+                    <state key="normal" title="开始"/>
+                    <state key="selected" title="暂停"/>
                     <connections>
-                        <action selector="pauseMoveButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="QZ5-Ln-LL4"/>
+                        <action selector="startOrPauseMoveButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="HjH-rd-KdH"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0g-3g-mxf">
