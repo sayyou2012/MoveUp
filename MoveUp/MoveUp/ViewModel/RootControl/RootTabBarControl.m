@@ -74,13 +74,10 @@
 - (void)viewWillAppear
 {
     UIViewController *moveHistoryVC = self.moveHistoryListControl.viewController;
-    moveHistoryVC.tabBarItem.title = @"历史记录";
     
     UIViewController *readyMoveVC = self.readyMoveControl.viewController;
-    readyMoveVC.tabBarItem.title = @"运动";
     
     UIViewController *setVC = self.setControl.viewController;
-    setVC.tabBarItem.title = @"设置";
     
     [self.rootTabBarController setViewControllers:@[moveHistoryVC, readyMoveVC, setVC]];
 

@@ -8,7 +8,7 @@
 
 #import "SetControl.h"
 
-@interface SetControl ()
+@interface SetControl () <SetViewControllerDelegate>
 
 @property (nonatomic, strong) SetViewController *setVC;
 
@@ -21,9 +21,18 @@
     if (!_setVC)
     {
         _setVC = [[SetViewController alloc] initWithNibName:NSStringFromClass([SetViewController class]) bundle:nil];
+        _setVC.tabBarItem.title = @"设置";
+        _setVC.delegate = self;
     }
     
     return _setVC;
+}
+
+#pragma mark - SetViewControllerDelegate
+
+- (void)viewDidLoad
+{
+   
 }
 
 @end

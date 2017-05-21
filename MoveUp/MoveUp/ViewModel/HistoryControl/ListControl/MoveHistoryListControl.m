@@ -8,7 +8,7 @@
 
 #import "MoveHistoryListControl.h"
 
-@interface MoveHistoryListControl ()
+@interface MoveHistoryListControl () <MoveHistoryListViewControllerDelegate>
 
 @property (nonatomic, strong) MoveHistoryListViewController *moveHistoryListVC;
 
@@ -21,10 +21,18 @@
     if (!_moveHistoryListVC)
     {
         _moveHistoryListVC = [[MoveHistoryListViewController alloc] initWithNibName:NSStringFromClass([MoveHistoryListViewController class]) bundle:nil];
-        
+        _moveHistoryListVC.tabBarItem.title = @"历史记录";
+        _moveHistoryListVC.delegate = self;
     }
     
     return _moveHistoryListVC;
+}
+
+#pragma mark - MoveHistoryListViewControllerDelegate
+
+- (void)viewDidLoad
+{
+    
 }
 
 @end

@@ -21,10 +21,18 @@
     if (!_readyMoveVC)
     {
         _readyMoveVC = [[ReadyMoveViewController alloc] initWithNibName:NSStringFromClass([ReadyMoveViewController class]) bundle:nil];
-        
+        _readyMoveVC.tabBarItem.title = @"运动";
+        _readyMoveVC.delegate = self;
     }
     
     return _readyMoveVC;
+}
+
+#pragma mark - ReadyMoveViewControllerDelegate
+
+- (void)viewDidLoad
+{
+    
 }
 
 @end
