@@ -34,6 +34,7 @@
 		D0D13E301ED108460058BF3F /* ReadyMoveControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D13E2F1ED108460058BF3F /* ReadyMoveControl.m */; };
 		D0D13E361ED108910058BF3F /* SetControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D13E351ED108910058BF3F /* SetControl.m */; };
 		D0D13E391ED10E960058BF3F /* MoveHistoryListControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D13E381ED10E960058BF3F /* MoveHistoryListControl.m */; };
+		D0D13E3C1ED123450058BF3F /* MovingControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D13E3B1ED123450058BF3F /* MovingControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,8 @@
 		D0D13E351ED108910058BF3F /* SetControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetControl.m; sourceTree = "<group>"; };
 		D0D13E371ED10E960058BF3F /* MoveHistoryListControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveHistoryListControl.h; sourceTree = "<group>"; };
 		D0D13E381ED10E960058BF3F /* MoveHistoryListControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveHistoryListControl.m; sourceTree = "<group>"; };
+		D0D13E3A1ED123450058BF3F /* MovingControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingControl.h; sourceTree = "<group>"; };
+		D0D13E3B1ED123450058BF3F /* MovingControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +330,8 @@
 		D06898921ED05488006FBA77 /* MovingControl */ = {
 			isa = PBXGroup;
 			children = (
+				D0D13E3A1ED123450058BF3F /* MovingControl.h */,
+				D0D13E3B1ED123450058BF3F /* MovingControl.m */,
 			);
 			path = MovingControl;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				D06898A21ED05E91006FBA77 /* RootViewController.m in Sources */,
 				D068987D1ED0440A006FBA77 /* MoveDetailViewController.m in Sources */,
 				D06898331ED02EEA006FBA77 /* main.m in Sources */,
+				D0D13E3C1ED123450058BF3F /* MovingControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

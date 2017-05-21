@@ -51,7 +51,7 @@
     
     [rootNavigationController setNavigationBarHidden:YES];
     
-//    [self.rootVC addChildViewController:rootNavigationController];
+    [self.rootVC addChildViewController:rootNavigationController];
     
     [self.viewController.view addSubview:rootNavigationController.view];
 }

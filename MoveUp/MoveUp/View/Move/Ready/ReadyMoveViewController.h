@@ -10,7 +10,7 @@
 
 @protocol ReadyMoveViewControllerDelegate <BaseViewControllerDelegate>
 
-
+- (void)segueToMovingVC;
 
 @end
 

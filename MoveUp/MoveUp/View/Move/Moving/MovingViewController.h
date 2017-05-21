@@ -6,8 +6,16 @@
 //  Copyright © 2017年 sayyou2012. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface MovingViewController : UIViewController
+@protocol MovingViewControllerDelegate <BaseViewControllerDelegate>
+
+
+
+@end
+
+@interface MovingViewController : BaseViewController
+
+@property (nonatomic, weak) id<MovingViewControllerDelegate> delegate;
 
 @end

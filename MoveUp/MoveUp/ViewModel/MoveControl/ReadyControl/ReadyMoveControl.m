@@ -7,10 +7,13 @@
 //
 
 #import "ReadyMoveControl.h"
+#import "MovingControl.h"
 
 @interface ReadyMoveControl () <ReadyMoveViewControllerDelegate>
 
 @property (nonatomic, strong) ReadyMoveViewController *readyMoveVC;
+
+@property (nonatomic, strong) MovingControl *movingControl;
 
 @end
 
@@ -28,11 +31,23 @@
     return _readyMoveVC;
 }
 
+#pragma mark - Lazy Load
+
+- (MovingControl *)movingControl
+{
+    if (!_movingControl)
+    {
+        _movingControl = [[MovingControl alloc] init];
+    }
+    
+    return _movingControl;
+}
+
 #pragma mark - ReadyMoveViewControllerDelegate
 
-- (void)viewDidLoad
+- (void)segueToMovingVC
 {
-    
+    [self.readyMoveVC.navigationController pushViewController:self.movingControl.viewController animated:YES];
 }
 
 @end

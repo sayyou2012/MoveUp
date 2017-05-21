@@ -7,6 +7,7 @@
 //
 
 #import "ReadyMoveViewController.h"
+#import "MovingViewController.h"
 
 @interface ReadyMoveViewController ()
 
@@ -27,7 +28,10 @@
 
 - (IBAction)startMoveButtonTouchUpInside:(UIButton *)sender
 {
-    
+    if ([self.delegate respondsToSelector:@selector(segueToMovingVC)])
+    {
+        [self.delegate segueToMovingVC];
+    }
 }
 
 
