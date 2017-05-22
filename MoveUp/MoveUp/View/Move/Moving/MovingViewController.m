@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *speedLabel;
 
-@property (strong, nonatomic) dispatch_source_t timer;
+@property (strong, nonatomic) NSTimer *timer;
 @property (assign, nonatomic) NSUInteger secondCount;//开始运动后所经过的秒数
 
 @end
@@ -23,19 +23,23 @@
 
 @dynamic delegate;
 
+- (void)dealloc
+{
+    NSLog(@"%s", __func__);
+}
+
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-        dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
-        dispatch_source_set_timer(_timer, start, 5.0 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
-        dispatch_source_set_event_handler(_timer, ^{
-            NSLog(@"动起来");
-            ++_secondCount;
-            _timeLabel.text = [self private_switchSecond2String:_secondCount];
-        });
+        _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer){
+                NSLog(@"动起来");
+                ++_secondCount;
+                _timeLabel.text = [self private_switchSecond2String:_secondCount];
+        }];
+        
+        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     }
     
     return self;
@@ -48,6 +52,14 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [_timer invalidate];
+    _timer = nil;
+}
+
 #pragma mark - UIButton Actions
 
 /**
@@ -58,13 +70,13 @@
     if (sender.isSelected)//暂停
     {
         NSLog(@"暂停");
-        dispatch_suspend(_timer);
+        [_timer setFireDate:[NSDate distantFuture]];
         
     }
-    else//开始
+    else//继续
     {
-        NSLog(@"开始");
-        dispatch_resume(_timer);
+        NSLog(@"继续");
+        [_timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:1.0]];
         
         if ([self.delegate respondsToSelector:@selector(pauseMove)])
         {

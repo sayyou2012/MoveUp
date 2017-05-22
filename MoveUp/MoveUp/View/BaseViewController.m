@@ -27,7 +27,7 @@
 {
     [super viewWillAppear:animated];
     
-    if ([self.delegate respondsToSelector:@selector(viewWillAppear:)])
+    if ([self.delegate respondsToSelector:@selector(viewWillAppear)])
     {
         [self.delegate viewWillAppear];
     }
@@ -37,7 +37,7 @@
 {
     [super viewDidAppear:animated];
     
-    if ([self.delegate respondsToSelector:@selector(viewDidAppear:)])
+    if ([self.delegate respondsToSelector:@selector(viewDidAppear)])
     {
         [self.delegate viewDidAppear];
     }
@@ -47,7 +47,7 @@
 {
     [super viewWillDisappear:animated];
     
-    if ([self.delegate respondsToSelector:@selector(viewWillDisappear:)])
+    if ([self.delegate respondsToSelector:@selector(viewWillDisappear)])
     {
         [self.delegate viewWillDisappear];
     }

@@ -19,12 +19,12 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4f-wU-Q8v">
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4f-wU-Q8v">
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="AU9-09-3fv"/>
                         <constraint firstAttribute="width" constant="60" id="hQs-kH-nT9"/>
                     </constraints>
-                    <state key="normal" title="开始"/>
+                    <state key="normal" title="继续"/>
                     <state key="selected" title="暂停"/>
                     <connections>
                         <action selector="startOrPauseMoveButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="HjH-rd-KdH"/>
@@ -40,7 +40,7 @@
                         <action selector="stopMoveButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="Xy0-Cx-Ch7"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:01:16" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FuI-be-FQQ">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FuI-be-FQQ">
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="gbU-9X-9Ph"/>
                     </constraints>

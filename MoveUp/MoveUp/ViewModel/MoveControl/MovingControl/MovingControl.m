@@ -29,6 +29,11 @@
 
 #pragma mark - MovingViewControllerDelegate
 
+- (void)viewWillDisappear
+{
+
+}
+
 - (void)pauseMove
 {
     
@@ -37,6 +42,8 @@
 - (void)stopMove
 {
     [self.movingVC.navigationController popViewControllerAnimated:YES];
+    
+    self.movingVC = nil;
 }
 
 @end
