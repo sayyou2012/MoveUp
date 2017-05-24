@@ -10,7 +10,6 @@
 		D06898331ED02EEA006FBA77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D06898321ED02EEA006FBA77 /* main.m */; };
 		D06898361ED02EEA006FBA77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D06898351ED02EEA006FBA77 /* AppDelegate.m */; };
 		D068983E1ED02EEA006FBA77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D068983D1ED02EEA006FBA77 /* Assets.xcassets */; };
-		D06898411ED02EEA006FBA77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D068983F1ED02EEA006FBA77 /* LaunchScreen.storyboard */; };
 		D06898571ED03B7F006FBA77 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D06898551ED03B7F006FBA77 /* RootTabBarController.m */; };
 		D06898611ED03F95006FBA77 /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D068985F1ED03F95006FBA77 /* RootNavigationController.m */; };
 		D068986E1ED04340006FBA77 /* ReadyMoveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D068986C1ED04340006FBA77 /* ReadyMoveViewController.m */; };
@@ -44,7 +43,6 @@
 		D06898341ED02EEA006FBA77 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D06898351ED02EEA006FBA77 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D068983D1ED02EEA006FBA77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D06898401ED02EEA006FBA77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D06898421ED02EEA006FBA77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D06898541ED03B7F006FBA77 /* RootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarController.h; sourceTree = "<group>"; };
 		D06898551ED03B7F006FBA77 /* RootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarController.m; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 			children = (
 				D06898321ED02EEA006FBA77 /* main.m */,
 				D068983D1ED02EEA006FBA77 /* Assets.xcassets */,
-				D068983F1ED02EEA006FBA77 /* LaunchScreen.storyboard */,
 				D06898421ED02EEA006FBA77 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -381,6 +378,7 @@
 				TargetAttributes = {
 					D068982D1ED02EEA006FBA77 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = H7L6W56299;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -413,7 +411,6 @@
 				D068989B1ED05803006FBA77 /* BaseViewController.xib in Resources */,
 				D06898831ED04422006FBA77 /* SetViewController.xib in Resources */,
 				D06898881ED046B5006FBA77 /* MoveHistoryListViewController.xib in Resources */,
-				D06898411ED02EEA006FBA77 /* LaunchScreen.storyboard in Resources */,
 				D06898A31ED05E91006FBA77 /* RootViewController.xib in Resources */,
 				D068983E1ED02EEA006FBA77 /* Assets.xcassets in Resources */,
 				D06898741ED04398006FBA77 /* MovingViewController.xib in Resources */,
@@ -451,17 +448,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		D068983F1ED02EEA006FBA77 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D06898401ED02EEA006FBA77 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D06898431ED02EEA006FBA77 /* Debug */ = {
@@ -556,10 +542,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = H7L6W56299;
 				INFOPLIST_FILE = MoveUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.syg.MoveUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -567,10 +557,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = H7L6W56299;
 				INFOPLIST_FILE = MoveUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.syg.MoveUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
