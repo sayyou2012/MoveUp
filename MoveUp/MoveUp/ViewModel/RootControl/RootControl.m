@@ -26,7 +26,7 @@
 {
     if (!_rootVC)
     {
-        _rootVC = [[RootViewController alloc] init];
+        _rootVC = [[RootViewController alloc] initWithNibName:NSStringFromClass([RootViewController class]) bundle:nil];
         _rootVC.delegate = self;
     }
     
@@ -49,6 +49,7 @@
 {
     RootNavigationController *rootNavigationController = [[RootNavigationController alloc] initWithRootViewController:self.rootTabBarControl.viewController];
     
+    rootNavigationController.view.frame = self.rootVC.view.bounds;
     [rootNavigationController setNavigationBarHidden:YES];
     
     [self.rootVC addChildViewController:rootNavigationController];
