@@ -33,11 +33,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        _timer = [NSTimer timerWithTimeInterval:1.0 repeats:YES block:^(NSTimer * _Nonnull timer){
-                NSLog(@"动起来");
-                ++_secondCount;
-                _timeLabel.text = [self private_switchSecond2String:_secondCount];
-        }];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(private_scheduledTimerActions) userInfo:nil repeats:YES];
         
         [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     }
@@ -133,6 +129,17 @@
     NSUInteger second = hourRemainder % 60;
     
     return [NSString stringWithFormat:@"%02lu:%02lu:%02lu", (unsigned long)hour, (unsigned long)minute, (unsigned long)second];
+}
+
+
+/**
+ 定时器定时执行的动作
+ */
+- (void)private_scheduledTimerActions
+{
+    NSLog(@"动起来");
+    ++_secondCount;
+    _timeLabel.text = [self private_switchSecond2String:_secondCount];
 }
 
 - (void)didReceiveMemoryWarning
