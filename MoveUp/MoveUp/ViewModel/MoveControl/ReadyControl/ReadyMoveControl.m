@@ -45,6 +45,11 @@
 
 #pragma mark - ReadyMoveViewControllerDelegate
 
+- (void)viewDidLoad
+{
+    
+}
+
 - (void)segueToMovingVC
 {
     [self.readyMoveVC.navigationController pushViewController:self.movingControl.viewController animated:YES];
