@@ -30,6 +30,7 @@
 		D06898A61ED05EC8006FBA77 /* RootControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D06898A51ED05EC8006FBA77 /* RootControl.m */; };
 		D06898A91ED06975006FBA77 /* RootTabBarControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D06898A81ED06975006FBA77 /* RootTabBarControl.m */; };
 		D06898AC1ED0A1FB006FBA77 /* RootTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06898AB1ED0A1FB006FBA77 /* RootTabBarController.xib */; };
+		D0755E921ED5ED520059157B /* CMLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D0755E911ED5ED520059157B /* CMLocation.m */; };
 		D0D13E301ED108460058BF3F /* ReadyMoveControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D13E2F1ED108460058BF3F /* ReadyMoveControl.m */; };
 		D0D13E361ED108910058BF3F /* SetControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D13E351ED108910058BF3F /* SetControl.m */; };
 		D0D13E391ED10E960058BF3F /* MoveHistoryListControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D13E381ED10E960058BF3F /* MoveHistoryListControl.m */; };
@@ -77,6 +78,8 @@
 		D06898A81ED06975006FBA77 /* RootTabBarControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarControl.m; sourceTree = "<group>"; };
 		D06898AA1ED08B64006FBA77 /* BaseViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewControllerDelegate.h; sourceTree = "<group>"; };
 		D06898AB1ED0A1FB006FBA77 /* RootTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootTabBarController.xib; sourceTree = "<group>"; };
+		D0755E901ED5ED520059157B /* CMLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMLocation.h; sourceTree = "<group>"; };
+		D0755E911ED5ED520059157B /* CMLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMLocation.m; sourceTree = "<group>"; };
 		D0D13E2E1ED108460058BF3F /* ReadyMoveControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadyMoveControl.h; sourceTree = "<group>"; };
 		D0D13E2F1ED108460058BF3F /* ReadyMoveControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadyMoveControl.m; sourceTree = "<group>"; };
 		D0D13E341ED108910058BF3F /* SetControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetControl.h; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 			children = (
 				D06898941ED057DF006FBA77 /* BaseControl.h */,
 				D06898951ED057DF006FBA77 /* BaseControl.m */,
+				D0755E8F1ED5ECBD0059157B /* ControlModel */,
 				D06898901ED0542A006FBA77 /* RootControl */,
 				D068988D1ED0542A006FBA77 /* MoveControl */,
 				D06898891ED0542A006FBA77 /* HistoryControl */,
@@ -347,6 +351,15 @@
 			path = ReadyControl;
 			sourceTree = "<group>";
 		};
+		D0755E8F1ED5ECBD0059157B /* ControlModel */ = {
+			isa = PBXGroup;
+			children = (
+				D0755E901ED5ED520059157B /* CMLocation.h */,
+				D0755E911ED5ED520059157B /* CMLocation.m */,
+			);
+			path = ControlModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -380,6 +393,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = H7L6W56299;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -425,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0755E921ED5ED520059157B /* CMLocation.m in Sources */,
 				D06898961ED057DF006FBA77 /* BaseControl.m in Sources */,
 				D06898A91ED06975006FBA77 /* RootTabBarControl.m in Sources */,
 				D0D13E361ED108910058BF3F /* SetControl.m in Sources */,

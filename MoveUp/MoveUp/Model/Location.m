@@ -7,6 +7,7 @@
 //
 
 #import "Location.h"
+#import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
 @interface Location () <CLLocationManagerDelegate>
@@ -40,8 +41,12 @@
         _locationManager                 = [[CLLocationManager alloc] init];
         _locationManager.delegate        = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        _locationManager.distanceFilter  = 2.0;
-        [_locationManager requestAlwaysAuthorization];
+        _locationManager.distanceFilter  = 0.1;
+        
+        if ([[UIDevice currentDevice] systemVersion].floatValue >= 8.0)
+        {
+            [_locationManager requestAlwaysAuthorization];
+        }
     }
     
     return _locationManager;
@@ -72,6 +77,7 @@
     {
         _updateLocationsCallBack(locations);
     }
+    NSLog(@"位置改变！");
 }
 
 @end
