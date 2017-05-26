@@ -47,7 +47,7 @@
 
 - (void)viewDidLoad
 {
-    
+//    [[CMLocation sharedInstance] startUpdatingLocation];
 }
 
 - (void)segueToMovingVC

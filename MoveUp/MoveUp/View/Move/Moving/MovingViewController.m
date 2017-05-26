@@ -56,6 +56,14 @@
     _timer = nil;
 }
 
+#pragma mark - Setter
+
+- (void)setModel:(id<LocationInMoving>)model
+{
+    _distanceLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)model.distance];
+    _speedLabel.text    = [NSString stringWithFormat:@"%lu", (unsigned long)model.averageSpeed];
+}
+
 #pragma mark - UIButton Actions
 
 /**

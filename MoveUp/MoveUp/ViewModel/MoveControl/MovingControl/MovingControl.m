@@ -7,6 +7,8 @@
 //
 
 #import "MovingControl.h"
+#import "ClientControl.h"
+#import "CMLocation.h"
 
 @interface MovingControl () <MovingViewControllerDelegate>
 
@@ -28,6 +30,13 @@
 }
 
 #pragma mark - MovingViewControllerDelegate
+
+- (void)viewDidLoad
+{
+    [[ClientControl sharedInstance].client receiveUpdateLocations:^(NSArray *locations, NSError *error) {
+        //TODO:
+    }];
+}
 
 - (void)viewWillDisappear
 {

@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-//#import "RootNavigationController.h"
-//#import "RootTabBarController.h"
 #import "RootControl.h"
 
 @interface AppDelegate ()

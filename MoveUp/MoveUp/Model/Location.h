@@ -7,26 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef void(^UpdateLocationsCallBack)(NSArray *locations);
+#import <CoreLocation/CoreLocation.h>
 
 @interface Location : NSObject
 
-+ (instancetype)sharedInstance;
+//@property (nonatomic, assign, readonly) NSUInteger distance;//距离
+//@property (nonatomic, assign, readonly) NSUInteger averageSpeed;//平均速度
+//@property (nonatomic, assign, readonly) NSUInteger averagePace;//平均配速
+
+@property (nonatomic, strong) CLLocation *clLocation;
+@property (nonatomic, assign, readonly) NSInteger altitude;//海拔
+@property (nonatomic, copy, readonly) NSString *course;//方向
+@property (nonatomic, assign, readonly) NSUInteger speed;//速度
 
 /**
- 开始定位（开始获取用户位置改变的报告）
- */
-- (void)startUpdatingLocation;
+ 获取两个点之间的距离
 
-/**
- 结束定位
+ @return 两个点位置之间的距离
  */
-- (void)stopUpdatingLocation;
-
-/**
- 接收用户位置改变的回调信息
- */
-- (void)receiveUpdateLocations:(UpdateLocationsCallBack)updateLocationsCallBack;
+- (CLLocationDistance)distanceFrom:(Location *)location;
 
 @end

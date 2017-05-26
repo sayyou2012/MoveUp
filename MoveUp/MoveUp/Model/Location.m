@@ -7,77 +7,70 @@
 //
 
 #import "Location.h"
-#import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
+#import "Location+Private.h"
 
-@interface Location () <CLLocationManagerDelegate>
+@interface Location ()
 
-//关联的定位管理器（聚合）
-@property (nonatomic, strong) CLLocationManager *locationManager;
-//临时变量，保存receiveUpdateLocations:传过来的block参数
-@property (nonatomic, copy) UpdateLocationsCallBack updateLocationsCallBack;
+//距离
+//@property (nonatomic, assign, readwrite) NSUInteger distance;
+////平均速度
+//@property (nonatomic, assign, readwrite) NSUInteger averageSpeed;
+////平均配速
+//@property (nonatomic, assign, readwrite) NSUInteger averagePace;
+//@property (nonatomic, strong, readwrite) CLLocation *clLocation;
+
+@property (nonatomic, assign, readwrite) NSInteger altitude;//海拔
+@property (nonatomic, copy, readwrite) NSString *course;//方向
+@property (nonatomic, assign, readwrite) NSUInteger speed;//速度
 
 @end
 
 @implementation Location
 
-+ (instancetype)sharedInstance
+#pragma mark - Setter
+
+- (void)setCLLocation:(CLLocation *)clLocation
 {
-    static Location *location;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        location = [[Location alloc] init];
-    });
-    
-    return location;
+    _clLocation   = clLocation;
+    self.altitude = clLocation.altitude;
+    //
+    self.course   = [self private_computeCourse:clLocation.course];
+    self.speed    = clLocation.speed;
 }
 
-#pragma mark - Lazy Load
+#pragma mark - Private Methods
 
-- (CLLocationManager *)locationManager
+/**
+ 根据方向度数计算出方向
+
+ @param courseDegress   0.0 - 359.9 degrees, 0 being true North
+
+ @return 方向
+ */
+- (NSString *)private_computeCourse:(CLLocationDirection)courseDegress
 {
-    if (!_locationManager)
-    {
-        _locationManager                 = [[CLLocationManager alloc] init];
-        _locationManager.delegate        = self;
-        _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        _locationManager.distanceFilter  = 0.1;
-        
-        if ([[UIDevice currentDevice] systemVersion].floatValue >= 8.0)
-        {
-            [_locationManager requestAlwaysAuthorization];
-        }
-    }
-    
-    return _locationManager;
+    //TODO:计算方向
+    return @"东";
 }
 
 #pragma mark - Public Methods
 
-- (void)startUpdatingLocation
+- (CLLocationDistance)distanceFrom:(Location *)location
 {
-    [self.locationManager startUpdatingLocation];
+    return [self.clLocation distanceFromLocation:location.clLocation];
 }
 
-- (void)stopUpdatingLocation
-{
-    [self.locationManager stopUpdatingLocation];
-}
+////坐标
+//CLLocationCoordinate2D coordinate2D = location.coordinate;
+////海拔
+//CLLocationDistance altitude = location.altitude;
+//
+////方向
+//CLLocationDirection course = location.course;
+////速度
+//CLLocationSpeed speed = location.speed;
+//
+//NSLog(@"");
 
-- (void)receiveUpdateLocations:(UpdateLocationsCallBack)updateLocationsCallBack
-{
-    self.updateLocationsCallBack = updateLocationsCallBack;
-}
-
-#pragma mark - CLLocationManagerDelegate
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
-{
-    if (_updateLocationsCallBack)
-    {
-        _updateLocationsCallBack(locations);
-    }
-    NSLog(@"位置改变！");
-}
 
 @end
