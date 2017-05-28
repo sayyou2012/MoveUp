@@ -58,10 +58,10 @@
 
 #pragma mark - Setter
 
-- (void)setModel:(id<LocationInMoving>)model
+- (void)setModel:(id<LocationProtocolInMovingVC>)model
 {
-    _distanceLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)model.distance];
-    _speedLabel.text    = [NSString stringWithFormat:@"%lu", (unsigned long)model.averageSpeed];
+    _distanceLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)model.altitude];
+    _speedLabel.text    = [NSString stringWithFormat:@"%lu", (unsigned long)model.speed];
 }
 
 #pragma mark - UIButton Actions

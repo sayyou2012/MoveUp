@@ -8,6 +8,7 @@
 
 #import "ReadyMoveControl.h"
 #import "MovingControl.h"
+#import "ClientControl.h"
 
 @interface ReadyMoveControl () <ReadyMoveViewControllerDelegate>
 
@@ -47,7 +48,7 @@
 
 - (void)viewDidLoad
 {
-//    [[CMLocation sharedInstance] startUpdatingLocation];
+    [[ClientControl sharedInstance].client startUpdatingLocation];
 }
 
 - (void)segueToMovingVC

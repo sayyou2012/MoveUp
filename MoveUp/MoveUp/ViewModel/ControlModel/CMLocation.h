@@ -7,7 +7,8 @@
 //
 
 #import "Location.h"
+#import "LocationProtocolInMovingVC.h"
 
-@interface CMLocation : Location
+@interface CMLocation : Location <LocationProtocolInMovingVC>
 
 @end

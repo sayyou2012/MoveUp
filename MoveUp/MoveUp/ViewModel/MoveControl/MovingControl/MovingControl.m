@@ -35,6 +35,8 @@
 {
     [[ClientControl sharedInstance].client receiveUpdateLocations:^(NSArray *locations, NSError *error) {
         //TODO:
+        CMLocation *cmLocation = locations.lastObject;
+        self.movingVC.model = cmLocation;
     }];
 }
 

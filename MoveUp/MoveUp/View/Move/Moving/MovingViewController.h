@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "LocationProtocolInMovingVC.h"
 
 @protocol MovingViewControllerDelegate <BaseViewControllerDelegate>
 
@@ -17,19 +18,11 @@
 
 @end
 
-@protocol LocationInMoving <NSObject>
-
-@property (nonatomic, assign) NSUInteger distance;//距离
-@property (nonatomic, assign) NSUInteger averageSpeed;//平均速度
-@property (nonatomic, assign) NSUInteger averagePace;//平均配速
-@property (nonatomic, assign) NSInteger altitude;//海拔
-
-@end
 
 @interface MovingViewController : BaseViewController
 
 @property (nonatomic, weak) id<MovingViewControllerDelegate> delegate;
 
-@property (nonatomic, strong) id<LocationInMoving> model;
+@property (nonatomic, strong) id<LocationProtocolInMovingVC> model;
 
 @end

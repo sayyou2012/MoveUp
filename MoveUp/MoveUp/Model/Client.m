@@ -9,6 +9,7 @@
 #import "Client.h"
 #import <UIKit/UIKit.h>
 #import "Location+Private.h"
+#import "ControlModelFactory.h"
 
 @interface Client () <CLLocationManagerDelegate>
 
@@ -43,7 +44,7 @@
         _locationManager                 = [[CLLocationManager alloc] init];
         _locationManager.delegate        = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        _locationManager.distanceFilter  = 2.0;
+        _locationManager.distanceFilter  = 0.1;
         
         if ([[UIDevice currentDevice] systemVersion].floatValue >= 8.0)
         {
@@ -85,7 +86,7 @@
         return;
     }
     
-    Location *tempLocation = [[Location alloc] init];
+    Location *tempLocation = [ControlModelFactory createControlModel:ControlModelTypeLocation];
     [tempLocation setCLLocation:cllocation];
     [_locationMutableArray addObject:tempLocation];
     

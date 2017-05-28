@@ -37,6 +37,7 @@
 		D0D13E3C1ED123450058BF3F /* MovingControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D13E3B1ED123450058BF3F /* MovingControl.m */; };
 		D0E5EF1F1ED73681009F6348 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E5EF1E1ED73681009F6348 /* Client.m */; };
 		D0F51F0C1ED8828400AB9AD5 /* ClientControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F51F0B1ED8828400AB9AD5 /* ClientControl.m */; };
+		D0F5892A1EDA87DA00582313 /* ControlModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F589291EDA87DA00582313 /* ControlModelFactory.m */; };
 		D0F959AF1ED5CCE700A8D58F /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F959AE1ED5CCE700A8D58F /* Location.m */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,9 @@
 		D0F51F011ED8686C00AB9AD5 /* Location+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Location+Private.h"; sourceTree = "<group>"; };
 		D0F51F0A1ED8828400AB9AD5 /* ClientControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientControl.h; sourceTree = "<group>"; };
 		D0F51F0B1ED8828400AB9AD5 /* ClientControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientControl.m; sourceTree = "<group>"; };
+		D0F589261EDA709C00582313 /* LocationProtocolInMovingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationProtocolInMovingVC.h; sourceTree = "<group>"; };
+		D0F589281EDA87DA00582313 /* ControlModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlModelFactory.h; sourceTree = "<group>"; };
+		D0F589291EDA87DA00582313 /* ControlModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlModelFactory.m; sourceTree = "<group>"; };
 		D0F959AD1ED5CCE700A8D58F /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		D0F959AE1ED5CCE700A8D58F /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,6 +247,7 @@
 				D06898701ED04398006FBA77 /* MovingViewController.h */,
 				D06898711ED04398006FBA77 /* MovingViewController.m */,
 				D06898721ED04398006FBA77 /* MovingViewController.xib */,
+				D0F589261EDA709C00582313 /* LocationProtocolInMovingVC.h */,
 			);
 			path = Moving;
 			sourceTree = "<group>";
@@ -366,10 +371,20 @@
 		D0755E8F1ED5ECBD0059157B /* ControlModel */ = {
 			isa = PBXGroup;
 			children = (
+				D0F589271EDA879900582313 /* ControlModelFactory */,
 				D0755E901ED5ED520059157B /* CMLocation.h */,
 				D0755E911ED5ED520059157B /* CMLocation.m */,
 			);
 			path = ControlModel;
+			sourceTree = "<group>";
+		};
+		D0F589271EDA879900582313 /* ControlModelFactory */ = {
+			isa = PBXGroup;
+			children = (
+				D0F589281EDA87DA00582313 /* ControlModelFactory.h */,
+				D0F589291EDA87DA00582313 /* ControlModelFactory.m */,
+			);
+			path = ControlModelFactory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,6 +492,7 @@
 				D06898331ED02EEA006FBA77 /* main.m in Sources */,
 				D0D13E3C1ED123450058BF3F /* MovingControl.m in Sources */,
 				D0E5EF1F1ED73681009F6348 /* Client.m in Sources */,
+				D0F5892A1EDA87DA00582313 /* ControlModelFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
