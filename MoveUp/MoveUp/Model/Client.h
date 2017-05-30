@@ -16,7 +16,9 @@ typedef void(^UpdateLocationsCallBack)(NSArray *locations, NSError *error);
 @interface Client : NSObject
 
 //用户运动过程中记录下的所有的位置点的数组
-@property (nonatomic, strong, readonly) NSArray<Location *> *locationArray;
+@property (nonatomic, readonly) NSArray<Location *> *locationArray;
+//用户最新的位置
+@property (nonatomic, readonly) CLLocationCoordinate2D lastLocationCoordinate;
 
 /**
  开始定位（开始获取用户位置改变的报告）

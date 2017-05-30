@@ -59,7 +59,7 @@
             if (locations.count > 1)
             {
                 CLLocationDistance distance = [lastModel distanceFrom:secondFromLast];
-                if (distance <= 0)
+                if (distance <= 0 || _secondCount <= 0)
                 {
                     return;
                 }
@@ -186,7 +186,7 @@
 
 - (void)private_updateUI
 {
-    _distanceLabel.text = [NSString stringWithFormat:@"%d", _distance];
+    _distanceLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)_distance];
     CGFloat averageSpeed = _distance/_secondCount;
     _speedLabel.text = [NSString stringWithFormat:@"%.2f", averageSpeed];
 }

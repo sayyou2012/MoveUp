@@ -33,6 +33,8 @@
 		D0755E921ED5ED520059157B /* CMLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D0755E911ED5ED520059157B /* CMLocation.m */; };
 		D0AFCDA11EDD1791009FDEEA /* MovingTraceMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AFCD9F1EDD1791009FDEEA /* MovingTraceMapViewController.m */; };
 		D0AFCDA21EDD1791009FDEEA /* MovingTraceMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0AFCDA01EDD1791009FDEEA /* MovingTraceMapViewController.xib */; };
+		D0AFCDA61EDD1A12009FDEEA /* MovingTraceMapControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AFCDA51EDD1A12009FDEEA /* MovingTraceMapControl.m */; };
+		D0AFCDAA1EDD1CA5009FDEEA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AFCDA81EDD1C58009FDEEA /* MapKit.framework */; };
 		D0D13E301ED108460058BF3F /* ReadyMoveControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D13E2F1ED108460058BF3F /* ReadyMoveControl.m */; };
 		D0D13E361ED108910058BF3F /* SetControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D13E351ED108910058BF3F /* SetControl.m */; };
 		D0D13E391ED10E960058BF3F /* MoveHistoryListControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D13E381ED10E960058BF3F /* MoveHistoryListControl.m */; };
@@ -88,6 +90,10 @@
 		D0AFCD9E1EDD1791009FDEEA /* MovingTraceMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingTraceMapViewController.h; sourceTree = "<group>"; };
 		D0AFCD9F1EDD1791009FDEEA /* MovingTraceMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingTraceMapViewController.m; sourceTree = "<group>"; };
 		D0AFCDA01EDD1791009FDEEA /* MovingTraceMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovingTraceMapViewController.xib; sourceTree = "<group>"; };
+		D0AFCDA41EDD1A12009FDEEA /* MovingTraceMapControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingTraceMapControl.h; sourceTree = "<group>"; };
+		D0AFCDA51EDD1A12009FDEEA /* MovingTraceMapControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingTraceMapControl.m; sourceTree = "<group>"; };
+		D0AFCDA81EDD1C58009FDEEA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D0AFCDAB1EDD796F009FDEEA /* LocationProtocolInMovingTraceMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationProtocolInMovingTraceMapVC.h; sourceTree = "<group>"; };
 		D0D13E2E1ED108460058BF3F /* ReadyMoveControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadyMoveControl.h; sourceTree = "<group>"; };
 		D0D13E2F1ED108460058BF3F /* ReadyMoveControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadyMoveControl.m; sourceTree = "<group>"; };
 		D0D13E341ED108910058BF3F /* SetControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetControl.h; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0AFCDAA1EDD1CA5009FDEEA /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +131,7 @@
 			children = (
 				D06898301ED02EEA006FBA77 /* MoveUp */,
 				D068982F1ED02EEA006FBA77 /* Products */,
+				D0AFCDA71EDD1C58009FDEEA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -330,8 +338,9 @@
 		D068988D1ED0542A006FBA77 /* MoveControl */ = {
 			isa = PBXGroup;
 			children = (
-				D06898921ED05488006FBA77 /* MovingControl */,
 				D06898931ED05488006FBA77 /* ReadyControl */,
+				D06898921ED05488006FBA77 /* MovingControl */,
+				D0AFCDA31EDD19C5009FDEEA /* MovingTraceMapControl */,
 			);
 			path = MoveControl;
 			sourceTree = "<group>";
@@ -390,8 +399,26 @@
 				D0AFCD9E1EDD1791009FDEEA /* MovingTraceMapViewController.h */,
 				D0AFCD9F1EDD1791009FDEEA /* MovingTraceMapViewController.m */,
 				D0AFCDA01EDD1791009FDEEA /* MovingTraceMapViewController.xib */,
+				D0AFCDAB1EDD796F009FDEEA /* LocationProtocolInMovingTraceMapVC.h */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		D0AFCDA31EDD19C5009FDEEA /* MovingTraceMapControl */ = {
+			isa = PBXGroup;
+			children = (
+				D0AFCDA41EDD1A12009FDEEA /* MovingTraceMapControl.h */,
+				D0AFCDA51EDD1A12009FDEEA /* MovingTraceMapControl.m */,
+			);
+			path = MovingTraceMapControl;
+			sourceTree = "<group>";
+		};
+		D0AFCDA71EDD1C58009FDEEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0AFCDA81EDD1C58009FDEEA /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D0F589271EDA879900582313 /* ControlModelFactory */ = {
@@ -439,6 +466,9 @@
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
 							};
 						};
 					};
@@ -490,6 +520,7 @@
 				D0755E921ED5ED520059157B /* CMLocation.m in Sources */,
 				D06898961ED057DF006FBA77 /* BaseControl.m in Sources */,
 				D06898A91ED06975006FBA77 /* RootTabBarControl.m in Sources */,
+				D0AFCDA61EDD1A12009FDEEA /* MovingTraceMapControl.m in Sources */,
 				D0D13E361ED108910058BF3F /* SetControl.m in Sources */,
 				D06898871ED046B5006FBA77 /* MoveHistoryListViewController.m in Sources */,
 				D0AFCDA11EDD1791009FDEEA /* MovingTraceMapViewController.m in Sources */,

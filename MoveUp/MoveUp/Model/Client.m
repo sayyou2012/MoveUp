@@ -104,4 +104,10 @@
     return [_locationMutableArray copy];
 }
 
+- (CLLocationCoordinate2D)lastLocationCoordinate
+{
+    Location *location = _locationMutableArray.lastObject;
+    return location.clLocation.coordinate;
+}
+
 @end

@@ -8,11 +8,14 @@
 
 #import "MovingControl.h"
 #import "ClientControl.h"
+#import "MovingTraceMapControl.h"
 #import "CMLocation.h"
 
 @interface MovingControl () <MovingViewControllerDelegate>
 
 @property (nonatomic, strong) MovingViewController *movingVC;
+
+@property (nonatomic, strong) MovingTraceMapControl *movingTraceMapControl;
 
 @end
 
@@ -27,6 +30,16 @@
     }
     
     return _movingVC;
+}
+
+- (MovingTraceMapControl *)movingTraceMapControl
+{
+    if (!_movingTraceMapControl)
+    {
+        _movingTraceMapControl = [[MovingTraceMapControl alloc] init];
+    }
+    
+    return _movingTraceMapControl;
 }
 
 #pragma mark - MovingViewControllerDelegate
@@ -60,7 +73,7 @@
 
 - (void)presentMovingTraceMap
 {
-    
+    [self.movingVC.navigationController pushViewController:self.movingTraceMapControl.viewController animated:YES];
 }
 
 @end

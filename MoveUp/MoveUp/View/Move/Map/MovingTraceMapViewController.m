@@ -7,31 +7,57 @@
 //
 
 #import "MovingTraceMapViewController.h"
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface MovingTraceMapViewController ()
+@interface MovingTraceMapViewController () <MKMapViewDelegate>
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
 @implementation MovingTraceMapViewController
 
-- (void)viewDidLoad {
+@dynamic delegate;
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    CLLocationCoordinate2D currentLocationCoordinate;
+    if ([self.delegate respondsToSelector:@selector(getLastLocationCoordinate)])
+    {
+        currentLocationCoordinate = [self.delegate getLastLocationCoordinate];
+    }
+    
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.2, 0.2);
+    MKCoordinateRegion region = MKCoordinateRegionMake(currentLocationCoordinate, span);
+    [_mapView setRegion:region];
+    
+//    _mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
 }
 
-- (void)didReceiveMemoryWarning {
+#pragma mark - MKMapViewDelegate
+
+//Tells the delegate that the location of the user was updated
+
+/**
+ 告诉代理用户位置信息更新了
+
+ @param mapView      地图
+ @param userLocation 用户位置的数据模型
+ */
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    //改变地图的中心坐标
+    [mapView setCenterCoordinate:userLocation.coordinate animated:YES];
+}
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
