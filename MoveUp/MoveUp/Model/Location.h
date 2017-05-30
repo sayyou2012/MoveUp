@@ -16,9 +16,10 @@
 //@property (nonatomic, assign, readonly) NSUInteger averagePace;//平均配速
 
 @property (nonatomic, strong) CLLocation *clLocation;
-@property (nonatomic, assign, readonly) NSInteger altitude;//海拔
-@property (nonatomic, copy, readonly) NSString *course;//方向
-@property (nonatomic, assign, readonly) NSUInteger speed;//速度
+@property (nonatomic, readonly) NSInteger altitude;//海拔
+@property (nonatomic, readonly) NSString *course;//方向
+@property (nonatomic, readonly) NSUInteger speed;//速度
+@property (nonatomic, readonly) CLLocationAccuracy horizontalAccuracy;//精度
 
 /**
  获取两个点之间的距离

@@ -13,9 +13,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *speedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *accuracyLabel;
 
 @property (strong, nonatomic) NSTimer *timer;
-@property (assign, nonatomic) NSUInteger secondCount;//开始运动后所经过的秒数
+//开始运动后所经过的秒数
+@property (assign, nonatomic) NSUInteger secondCount;
+@property (assign, nonatomic) NSUInteger distance;
+
+//@property (nonatomic, strong) id<LocationProtocolInMovingVC> model;
 
 @end
 
@@ -46,6 +51,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    if ([self.delegate respondsToSelector:@selector(receiveUpdateLocations:)])
+    {
+        [self.delegate receiveUpdateLocations:^(NSArray *locations, NSError *error) {
+            id<LocationProtocolInMovingVC> lastModel = locations.lastObject;
+            id<LocationProtocolInMovingVC> secondFromLast = locations[locations.count - 2];
+            if (locations.count > 1)
+            {
+                CLLocationDistance distance = [lastModel distanceFrom:secondFromLast];
+                if (distance <= 0)
+                {
+                    return;
+                }
+                
+                _distance += distance;
+                [self private_updateUI];
+                _accuracyLabel.text = [NSString stringWithFormat:@"%f", lastModel.horizontalAccuracy];
+            }
+        }];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -56,13 +80,13 @@
     _timer = nil;
 }
 
-#pragma mark - Setter
-
-- (void)setModel:(id<LocationProtocolInMovingVC>)model
-{
-    _distanceLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)model.altitude];
-    _speedLabel.text    = [NSString stringWithFormat:@"%lu", (unsigned long)model.speed];
-}
+//#pragma mark - Setter
+//
+//- (void)setModel:(id<LocationProtocolInMovingVC>)model
+//{
+//    _distanceLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)model.altitude];
+//    _speedLabel.text    = [NSString stringWithFormat:@"%lu", (unsigned long)model.speed];
+//}
 
 #pragma mark - UIButton Actions
 
@@ -102,6 +126,16 @@
     }
 }
 
+/**
+ 展示地图
+ */
+- (IBAction)presentMapButtonTouchUpInside:(UIButton *)sender
+{
+    if ([self.delegate respondsToSelector:@selector(presentMovingTraceMap)])
+    {
+        [self.delegate presentMovingTraceMap];
+    }
+}
 
 /**
  切换距离的显示方式
@@ -148,6 +182,13 @@
     NSLog(@"动起来");
     ++_secondCount;
     _timeLabel.text = [self private_switchSecond2String:_secondCount];
+}
+
+- (void)private_updateUI
+{
+    _distanceLabel.text = [NSString stringWithFormat:@"%d", _distance];
+    CGFloat averageSpeed = _distance/_secondCount;
+    _speedLabel.text = [NSString stringWithFormat:@"%.2f", averageSpeed];
 }
 
 - (void)didReceiveMemoryWarning

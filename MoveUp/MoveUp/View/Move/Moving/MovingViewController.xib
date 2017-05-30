@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovingViewController">
             <connections>
+                <outlet property="accuracyLabel" destination="raF-Bd-h24" id="vPu-GM-R16"/>
                 <outlet property="distanceLabel" destination="RbF-G4-v2w" id="q9G-Lk-daA"/>
                 <outlet property="speedLabel" destination="jn2-0h-M3f" id="4gY-2i-1E9"/>
                 <outlet property="timeLabel" destination="FuI-be-FQQ" id="hBR-Lm-mid"/>
@@ -50,7 +51,7 @@
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBv-d6-2Kp" userLabel="distanceView">
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbF-G4-v2w">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbF-G4-v2w">
                             <constraints>
                                 <constraint firstAttribute="width" constant="200" id="rUX-on-Wu7"/>
                             </constraints>
@@ -85,7 +86,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4xV-Xl-9E4" userLabel="speedView">
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jn2-0h-M3f">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jn2-0h-M3f">
                             <constraints>
                                 <constraint firstAttribute="width" constant="150" id="Vx2-5F-ebN"/>
                             </constraints>
@@ -118,11 +119,31 @@
                         <constraint firstAttribute="height" constant="80" id="Ppx-dl-E2E"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="精度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raF-Bd-h24">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="lQP-HJ-OIh"/>
+                        <constraint firstAttribute="height" constant="50" id="sXG-zy-f56"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HmN-NT-uCe">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="dB5-qb-WYF"/>
+                        <constraint firstAttribute="width" constant="60" id="p47-2Q-hdc"/>
+                    </constraints>
+                    <state key="normal" title="地图"/>
+                    <connections>
+                        <action selector="presentMapButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="K6S-sc-zg4"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.5607843137254902" green="0.83921568627450982" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="wBv-d6-2Kp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="19i-Ib-A6y"/>
                 <constraint firstAttribute="trailing" secondItem="v0g-3g-mxf" secondAttribute="trailing" constant="66" id="2DI-wQ-rvS"/>
+                <constraint firstAttribute="trailing" secondItem="HmN-NT-uCe" secondAttribute="trailing" constant="16" id="A16-yO-8Pp"/>
                 <constraint firstItem="O4f-wU-Q8v" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EFw-4n-bOY"/>
                 <constraint firstAttribute="trailing" secondItem="FuI-be-FQQ" secondAttribute="trailing" id="JWV-Jx-qe7"/>
                 <constraint firstItem="4xV-Xl-9E4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kyd-Xc-JU4"/>
@@ -133,8 +154,11 @@
                 <constraint firstItem="4xV-Xl-9E4" firstAttribute="top" secondItem="wBv-d6-2Kp" secondAttribute="bottom" constant="30" id="esB-3g-svJ"/>
                 <constraint firstItem="wBv-d6-2Kp" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="g1D-0D-3vZ"/>
                 <constraint firstItem="v0g-3g-mxf" firstAttribute="centerY" secondItem="O4f-wU-Q8v" secondAttribute="centerY" id="g5j-my-sqe"/>
+                <constraint firstItem="raF-Bd-h24" firstAttribute="top" secondItem="4xV-Xl-9E4" secondAttribute="bottom" constant="43.5" id="j84-wq-b4z"/>
                 <constraint firstAttribute="trailing" secondItem="wBv-d6-2Kp" secondAttribute="trailing" id="pg1-fC-ifv"/>
                 <constraint firstAttribute="bottom" secondItem="O4f-wU-Q8v" secondAttribute="bottom" constant="30" id="shk-qy-j7z"/>
+                <constraint firstItem="HmN-NT-uCe" firstAttribute="top" secondItem="4xV-Xl-9E4" secondAttribute="bottom" constant="20" id="uOV-jB-qAZ"/>
+                <constraint firstItem="raF-Bd-h24" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="vUI-Cz-8FQ"/>
             </constraints>
             <point key="canvasLocation" x="-695.5" y="97.5"/>
         </view>

@@ -7,11 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @protocol LocationProtocolInMovingVC <NSObject>
 
-@property (nonatomic, assign, readonly) NSInteger altitude;//海拔
-@property (nonatomic, copy, readonly) NSString *course;//方向
-@property (nonatomic, assign, readonly) NSUInteger speed;//速度
+//海拔
+@property (nonatomic, readonly) NSInteger altitude;
+//方向
+@property (nonatomic, readonly) NSString *course;
+//速度
+@property (nonatomic, readonly) NSUInteger speed;
+//精度
+@property (nonatomic, readonly) CLLocationAccuracy horizontalAccuracy;
+@property (nonatomic, readonly) CLLocation *clLocation;
+
+/**
+ 获取两个点之间的距离
+ 
+ @return 两个点位置之间的距离
+ */
+- (CLLocationDistance)distanceFrom:(id<LocationProtocolInMovingVC>)location;
 
 @end

@@ -31,6 +31,8 @@
 		D06898A91ED06975006FBA77 /* RootTabBarControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D06898A81ED06975006FBA77 /* RootTabBarControl.m */; };
 		D06898AC1ED0A1FB006FBA77 /* RootTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06898AB1ED0A1FB006FBA77 /* RootTabBarController.xib */; };
 		D0755E921ED5ED520059157B /* CMLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D0755E911ED5ED520059157B /* CMLocation.m */; };
+		D0AFCDA11EDD1791009FDEEA /* MovingTraceMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AFCD9F1EDD1791009FDEEA /* MovingTraceMapViewController.m */; };
+		D0AFCDA21EDD1791009FDEEA /* MovingTraceMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0AFCDA01EDD1791009FDEEA /* MovingTraceMapViewController.xib */; };
 		D0D13E301ED108460058BF3F /* ReadyMoveControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D13E2F1ED108460058BF3F /* ReadyMoveControl.m */; };
 		D0D13E361ED108910058BF3F /* SetControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D13E351ED108910058BF3F /* SetControl.m */; };
 		D0D13E391ED10E960058BF3F /* MoveHistoryListControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D13E381ED10E960058BF3F /* MoveHistoryListControl.m */; };
@@ -83,6 +85,9 @@
 		D06898AB1ED0A1FB006FBA77 /* RootTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootTabBarController.xib; sourceTree = "<group>"; };
 		D0755E901ED5ED520059157B /* CMLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMLocation.h; sourceTree = "<group>"; };
 		D0755E911ED5ED520059157B /* CMLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMLocation.m; sourceTree = "<group>"; };
+		D0AFCD9E1EDD1791009FDEEA /* MovingTraceMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingTraceMapViewController.h; sourceTree = "<group>"; };
+		D0AFCD9F1EDD1791009FDEEA /* MovingTraceMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingTraceMapViewController.m; sourceTree = "<group>"; };
+		D0AFCDA01EDD1791009FDEEA /* MovingTraceMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovingTraceMapViewController.xib; sourceTree = "<group>"; };
 		D0D13E2E1ED108460058BF3F /* ReadyMoveControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadyMoveControl.h; sourceTree = "<group>"; };
 		D0D13E2F1ED108460058BF3F /* ReadyMoveControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadyMoveControl.m; sourceTree = "<group>"; };
 		D0D13E341ED108910058BF3F /* SetControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetControl.h; sourceTree = "<group>"; };
@@ -227,6 +232,7 @@
 			children = (
 				D06898671ED04241006FBA77 /* Ready */,
 				D06898661ED04241006FBA77 /* Moving */,
+				D0AFCD981EDD1608009FDEEA /* Map */,
 			);
 			path = Move;
 			sourceTree = "<group>";
@@ -378,6 +384,16 @@
 			path = ControlModel;
 			sourceTree = "<group>";
 		};
+		D0AFCD981EDD1608009FDEEA /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				D0AFCD9E1EDD1791009FDEEA /* MovingTraceMapViewController.h */,
+				D0AFCD9F1EDD1791009FDEEA /* MovingTraceMapViewController.m */,
+				D0AFCDA01EDD1791009FDEEA /* MovingTraceMapViewController.xib */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		D0F589271EDA879900582313 /* ControlModelFactory */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +475,7 @@
 				D06898A31ED05E91006FBA77 /* RootViewController.xib in Resources */,
 				D068983E1ED02EEA006FBA77 /* Assets.xcassets in Resources */,
 				D06898741ED04398006FBA77 /* MovingViewController.xib in Resources */,
+				D0AFCDA21EDD1791009FDEEA /* MovingTraceMapViewController.xib in Resources */,
 				D068986F1ED04340006FBA77 /* ReadyMoveViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +492,7 @@
 				D06898A91ED06975006FBA77 /* RootTabBarControl.m in Sources */,
 				D0D13E361ED108910058BF3F /* SetControl.m in Sources */,
 				D06898871ED046B5006FBA77 /* MoveHistoryListViewController.m in Sources */,
+				D0AFCDA11EDD1791009FDEEA /* MovingTraceMapViewController.m in Sources */,
 				D068989A1ED05803006FBA77 /* BaseViewController.m in Sources */,
 				D06898571ED03B7F006FBA77 /* RootTabBarController.m in Sources */,
 				D06898361ED02EEA006FBA77 /* AppDelegate.m in Sources */,

@@ -33,16 +33,17 @@
 
 - (void)viewDidLoad
 {
-    [[ClientControl sharedInstance].client receiveUpdateLocations:^(NSArray *locations, NSError *error) {
-        //TODO:
-        CMLocation *cmLocation = locations.lastObject;
-        self.movingVC.model = cmLocation;
-    }];
+
 }
 
 - (void)viewWillDisappear
 {
 
+}
+
+- (void)receiveUpdateLocations:(UpdateLocationsCallBack)updateLocationsCallBack
+{
+    [[ClientControl sharedInstance].client receiveUpdateLocations:updateLocationsCallBack];
 }
 
 - (void)pauseMove
@@ -53,8 +54,13 @@
 - (void)stopMove
 {
     [self.movingVC.navigationController popViewControllerAnimated:YES];
-    
+    [[ClientControl sharedInstance].client stopUpdatingLocation];
     self.movingVC = nil;
+}
+
+- (void)presentMovingTraceMap
+{
+    
 }
 
 @end

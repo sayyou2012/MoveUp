@@ -19,9 +19,14 @@
 //@property (nonatomic, assign, readwrite) NSUInteger averagePace;
 //@property (nonatomic, strong, readwrite) CLLocation *clLocation;
 
-@property (nonatomic, assign, readwrite) NSInteger altitude;//海拔
-@property (nonatomic, copy, readwrite) NSString *course;//方向
-@property (nonatomic, assign, readwrite) NSUInteger speed;//速度
+//海拔
+@property (nonatomic, assign, readwrite) NSInteger altitude;
+//方向
+@property (nonatomic, copy, readwrite) NSString *course;
+//速度
+@property (nonatomic, assign, readwrite) NSUInteger speed;
+//精度
+@property (nonatomic, assign, readwrite) CLLocationAccuracy horizontalAccuracy;
 
 @end
 
@@ -36,6 +41,7 @@
     //
     self.course   = [self private_computeCourse:clLocation.course];
     self.speed    = clLocation.speed;
+    self.horizontalAccuracy = clLocation.horizontalAccuracy;
 }
 
 #pragma mark - Private Methods
