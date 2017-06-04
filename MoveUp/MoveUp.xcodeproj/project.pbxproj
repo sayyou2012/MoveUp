@@ -31,6 +31,7 @@
 		D06898A91ED06975006FBA77 /* RootTabBarControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D06898A81ED06975006FBA77 /* RootTabBarControl.m */; };
 		D06898AC1ED0A1FB006FBA77 /* RootTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06898AB1ED0A1FB006FBA77 /* RootTabBarController.xib */; };
 		D0755E921ED5ED520059157B /* CMLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D0755E911ED5ED520059157B /* CMLocation.m */; };
+		D093BA761EE41C54002E3EA9 /* EarthCoordinateToMarsCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = D093BA751EE41C54002E3EA9 /* EarthCoordinateToMarsCoordinate.m */; };
 		D0AFCDA11EDD1791009FDEEA /* MovingTraceMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AFCD9F1EDD1791009FDEEA /* MovingTraceMapViewController.m */; };
 		D0AFCDA21EDD1791009FDEEA /* MovingTraceMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0AFCDA01EDD1791009FDEEA /* MovingTraceMapViewController.xib */; };
 		D0AFCDA61EDD1A12009FDEEA /* MovingTraceMapControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AFCDA51EDD1A12009FDEEA /* MovingTraceMapControl.m */; };
@@ -87,6 +88,8 @@
 		D06898AB1ED0A1FB006FBA77 /* RootTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootTabBarController.xib; sourceTree = "<group>"; };
 		D0755E901ED5ED520059157B /* CMLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMLocation.h; sourceTree = "<group>"; };
 		D0755E911ED5ED520059157B /* CMLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMLocation.m; sourceTree = "<group>"; };
+		D093BA741EE41C54002E3EA9 /* EarthCoordinateToMarsCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthCoordinateToMarsCoordinate.h; sourceTree = "<group>"; };
+		D093BA751EE41C54002E3EA9 /* EarthCoordinateToMarsCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthCoordinateToMarsCoordinate.m; sourceTree = "<group>"; };
 		D0AFCD9E1EDD1791009FDEEA /* MovingTraceMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingTraceMapViewController.h; sourceTree = "<group>"; };
 		D0AFCD9F1EDD1791009FDEEA /* MovingTraceMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingTraceMapViewController.m; sourceTree = "<group>"; };
 		D0AFCDA01EDD1791009FDEEA /* MovingTraceMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovingTraceMapViewController.xib; sourceTree = "<group>"; };
@@ -151,6 +154,7 @@
 				D068984A1ED03607006FBA77 /* Model */,
 				D068984B1ED03615006FBA77 /* View */,
 				D068984D1ED03624006FBA77 /* ViewModel */,
+				D093BA731EE41BAE002E3EA9 /* Utils */,
 				D06898311ED02EEA006FBA77 /* Supporting Files */,
 			);
 			path = MoveUp;
@@ -393,6 +397,15 @@
 			path = ControlModel;
 			sourceTree = "<group>";
 		};
+		D093BA731EE41BAE002E3EA9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D093BA741EE41C54002E3EA9 /* EarthCoordinateToMarsCoordinate.h */,
+				D093BA751EE41C54002E3EA9 /* EarthCoordinateToMarsCoordinate.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D0AFCD981EDD1608009FDEEA /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +538,7 @@
 				D06898871ED046B5006FBA77 /* MoveHistoryListViewController.m in Sources */,
 				D0AFCDA11EDD1791009FDEEA /* MovingTraceMapViewController.m in Sources */,
 				D068989A1ED05803006FBA77 /* BaseViewController.m in Sources */,
+				D093BA761EE41C54002E3EA9 /* EarthCoordinateToMarsCoordinate.m in Sources */,
 				D06898571ED03B7F006FBA77 /* RootTabBarController.m in Sources */,
 				D06898361ED02EEA006FBA77 /* AppDelegate.m in Sources */,
 				D06898821ED04422006FBA77 /* SetViewController.m in Sources */,

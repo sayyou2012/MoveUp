@@ -8,6 +8,7 @@
 
 #import "Location.h"
 #import "Location+Private.h"
+#import "EarthCoordinateToMarsCoordinate.h"
 
 @interface Location ()
 
@@ -19,6 +20,8 @@
 //@property (nonatomic, assign, readwrite) NSUInteger averagePace;
 //@property (nonatomic, strong, readwrite) CLLocation *clLocation;
 
+//坐标
+@property (nonatomic, assign, readwrite) CLLocationCoordinate2D coordinate;
 //海拔
 @property (nonatomic, assign, readwrite) NSInteger altitude;
 //方向
@@ -27,6 +30,8 @@
 @property (nonatomic, assign, readwrite) NSUInteger speed;
 //精度
 @property (nonatomic, assign, readwrite) CLLocationAccuracy horizontalAccuracy;
+
+@property (nonatomic, strong) CLLocation *clLocation;
 
 @end
 
@@ -37,6 +42,8 @@
 - (void)setCLLocation:(CLLocation *)clLocation
 {
     _clLocation   = clLocation;
+    //通过LocationManager定位的坐标和通过mapView:didUpdateUserLocation获取的坐标有偏差，需进行转换
+    self.coordinate = [EarthCoordinateToMarsCoordinate getMarsCoorWithEarthCoor:clLocation.coordinate];
     self.altitude = clLocation.altitude;
     //
     self.course   = [self private_computeCourse:clLocation.course];
