@@ -44,7 +44,7 @@
         _locationManager                 = [[CLLocationManager alloc] init];
         _locationManager.delegate        = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        _locationManager.distanceFilter  = 0.1;
+        _locationManager.distanceFilter  = 2.0;
         
         if ([[UIDevice currentDevice] systemVersion].floatValue >= 8.0)
         {
@@ -86,14 +86,20 @@
         return;
     }
     
-    Location *tempLocation = [ControlModelFactory createControlModel:ControlModelTypeLocation];
+     Location *tempLocation = [ControlModelFactory createControlModel:ControlModelTypeLocation];
     [tempLocation setCLLocation:cllocation];
-    [_locationMutableArray addObject:tempLocation];
-    
+
+    //开始接受位置更新后，才开始收集位置数据
     if (_updateLocationsCallBack)
     {
+        [_locationMutableArray addObject:tempLocation];
+    
         NSLog(@"位置改变！");
         _updateLocationsCallBack(_locationMutableArray, nil);
+    }
+    else//刚启动应用的时候，该回调可能会连续多次回调，取最后一个回调的值（最后一次回调的应该是相比前面的准确的）
+    {
+        _locationMutableArray[0] = tempLocation;
     }
 }
 
