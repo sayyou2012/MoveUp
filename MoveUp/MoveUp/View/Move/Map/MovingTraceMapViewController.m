@@ -9,11 +9,15 @@
 #import "MovingTraceMapViewController.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "ClientControl.h"
+//#import "ClientControl.h"
 
 @interface MovingTraceMapViewController () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
+@property (weak, nonatomic) IBOutlet UILabel *distance;
+
+@property (weak, nonatomic) IBOutlet UILabel *averageSpeed;
 
 @property (assign, nonatomic) CLLocationCoordinate2D lastCoordinate;
 
@@ -22,6 +26,11 @@
 @implementation MovingTraceMapViewController
 
 @dynamic delegate;
+
+- (void)dealloc
+{
+    NSLog(@"%s", __func__);
+}
 
 - (void)viewDidLoad
 {
@@ -53,9 +62,9 @@
  */
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    ClientControl *cc = [ClientControl sharedInstance];
-    Client *client = cc.client;
-    NSArray *locationArray = client.locationArray;
+//    ClientControl *cc = [ClientControl sharedInstance];
+//    Client *client = cc.client;
+//    NSArray *locationArray = client.locationArray;
     
     
     //改变地图的中心坐标
@@ -92,6 +101,14 @@
 {
 //    mapView.region.span
 }
+
+#pragma mark - UIButton Actions
+
+- (IBAction)backButtonTouchUpInside:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning
 {

@@ -53,6 +53,7 @@
     
     if ([self.delegate respondsToSelector:@selector(receiveUpdateLocations:)])
     {
+        __weak typeof(self) weakSelf = self;
         [self.delegate receiveUpdateLocations:^(NSArray *locations, NSError *error) {
             id<LocationProtocolInMovingVC> lastModel = locations.lastObject;
             id<LocationProtocolInMovingVC> secondFromLast = locations[locations.count - 2];
@@ -65,7 +66,7 @@
                 }
                 
                 _distance += distance;
-                [self private_updateUI];
+                [weakSelf private_updateUI];
                 _accuracyLabel.text = [NSString stringWithFormat:@"%f", lastModel.horizontalAccuracy];
             }
         }];

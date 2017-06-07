@@ -32,9 +32,15 @@
 
 #pragma mark - MovingTraceMapViewControllerDelegate
 
+- (void)viewDidDisappear
+{
+    self.movingTraceMapVC = nil;
+}
+
 - (CLLocationCoordinate2D)getLastLocationCoordinate
 {
     return [[ClientControl sharedInstance].client lastLocationCoordinate];
 }
+
 
 @end

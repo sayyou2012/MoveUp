@@ -57,7 +57,7 @@
 {
     [super viewDidDisappear:animated];
     
-    if ([self.delegate respondsToSelector:@selector(viewDidDisappear:)])
+    if ([self.delegate respondsToSelector:@selector(viewDidDisappear)])
     {
         [self.delegate viewDidDisappear];
     }

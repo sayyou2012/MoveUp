@@ -8,6 +8,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovingTraceMapViewController">
             <connections>
+                <outlet property="averageSpeed" destination="BF0-re-vKo" id="8dC-n1-Td8"/>
+                <outlet property="distance" destination="h04-75-4Di" id="x7A-SE-o2N"/>
                 <outlet property="mapView" destination="F7n-D0-N1g" id="7HF-xB-Bms"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,13 +24,54 @@
                         <outlet property="delegate" destination="-1" id="etb-HH-wYU"/>
                     </connections>
                 </mapView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yha-kb-mmY">
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTQ-Gf-XwX">
+                            <frame key="frameInset" minX="22" minY="15" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="返回"/>
+                            <connections>
+                                <action selector="backButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="jZz-AY-wP4"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平均速度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BF0-re-vKo">
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="1z0-uX-Jg8"/>
+                                <constraint firstAttribute="height" constant="40" id="vrg-bY-cHM"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距离" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h04-75-4Di">
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="2D3-ea-cPz"/>
+                                <constraint firstAttribute="height" constant="40" id="HiD-aG-2Hm"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25113311068702288" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="BF0-re-vKo" secondAttribute="trailing" constant="20" id="4BD-Da-1p8"/>
+                        <constraint firstItem="h04-75-4Di" firstAttribute="centerY" secondItem="Yha-kb-mmY" secondAttribute="centerY" id="7dd-pw-cgs"/>
+                        <constraint firstAttribute="height" constant="60" id="HZz-8A-wAa"/>
+                        <constraint firstItem="h04-75-4Di" firstAttribute="centerX" secondItem="Yha-kb-mmY" secondAttribute="centerX" id="ki0-zG-448"/>
+                        <constraint firstItem="BF0-re-vKo" firstAttribute="centerY" secondItem="Yha-kb-mmY" secondAttribute="centerY" id="qRK-gK-uH8"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="F7n-D0-N1g" secondAttribute="trailing" id="1V4-iv-0i7"/>
+                <constraint firstAttribute="trailing" secondItem="Yha-kb-mmY" secondAttribute="trailing" id="4ej-uF-RTg"/>
+                <constraint firstAttribute="bottom" secondItem="Yha-kb-mmY" secondAttribute="bottom" id="6VO-NO-Zah"/>
                 <constraint firstAttribute="bottom" secondItem="F7n-D0-N1g" secondAttribute="bottom" id="JAy-nf-iyO"/>
                 <constraint firstItem="F7n-D0-N1g" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OR5-nY-W8d"/>
                 <constraint firstItem="F7n-D0-N1g" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hPm-Sc-4xB"/>
+                <constraint firstItem="Yha-kb-mmY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yoM-Lb-9rX"/>
             </constraints>
         </view>
     </objects>
