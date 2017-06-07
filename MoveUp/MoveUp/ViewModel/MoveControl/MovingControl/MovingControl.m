@@ -11,7 +11,7 @@
 #import "MovingTraceMapControl.h"
 #import "CMLocation.h"
 
-@interface MovingControl () <MovingViewControllerDelegate>
+@interface MovingControl () <MovingViewControllerDelegate, CAAnimationDelegate>
 
 @property (nonatomic, strong) MovingViewController *movingVC;
 
@@ -73,7 +73,14 @@
 
 - (void)presentMovingTraceMap
 {
-    [self.movingVC.navigationController pushViewController:self.movingTraceMapControl.viewController animated:YES];
+    CATransition *transition  = [CATransition animation];
+    transition.duration       = 0.3f;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type           = kCATransitionMoveIn;
+    transition.subtype        = kCATransitionFromTop;
+    transition.delegate       = self;
+    [self.movingVC.navigationController.view.layer addAnimation:transition forKey:nil];
+    [self.movingVC.navigationController pushViewController:self.movingTraceMapControl.viewController animated:NO];
 }
 
 @end

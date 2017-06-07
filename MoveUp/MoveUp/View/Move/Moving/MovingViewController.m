@@ -76,9 +76,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    
-    [_timer invalidate];
-    _timer = nil;
+
 }
 
 //#pragma mark - Setter
@@ -123,6 +121,8 @@
 {
     if ([self.delegate respondsToSelector:@selector(stopMove)])
     {
+        [_timer invalidate];
+        _timer = nil;
         [self.delegate stopMove];
     }
 }

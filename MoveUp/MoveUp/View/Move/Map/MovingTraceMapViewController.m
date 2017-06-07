@@ -11,7 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 //#import "ClientControl.h"
 
-@interface MovingTraceMapViewController () <MKMapViewDelegate>
+@interface MovingTraceMapViewController () <MKMapViewDelegate, CAAnimationDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
@@ -106,7 +106,14 @@
 
 - (IBAction)backButtonTouchUpInside:(UIButton *)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    CATransition *transition  = [CATransition animation];
+    transition.duration       = 0.3f;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type           = kCATransitionMoveIn;
+    transition.subtype        = kCATransitionFromBottom;
+    transition.delegate       = self;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 
