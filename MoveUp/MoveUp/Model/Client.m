@@ -15,10 +15,10 @@
 
 //关联的定位管理器（聚合）
 @property (nonatomic, strong) CLLocationManager *locationManager;
-//临时变量，保存receiveUpdateLocations:传过来的block参数
-@property (nonatomic, copy) UpdateLocationsCallBack updateLocationsCallBack;
 //用户运动过程中记录下的所有的位置点的可变数组
 @property (nonatomic, strong) NSMutableArray<Location *> *locationMutableArray;
+//存放回调block的set
+@property (nonatomic, strong) NSMutableSet *callbackBlockSet;
 
 @end
 
@@ -30,6 +30,7 @@
     if (self)
     {
         _locationMutableArray = [NSMutableArray array];
+        _callbackBlockSet     = [NSMutableSet set];
     }
     
     return self;
@@ -69,7 +70,7 @@
 
 - (void)receiveUpdateLocations:(UpdateLocationsCallBack)updateLocationsCallBack
 {
-    self.updateLocationsCallBack = updateLocationsCallBack;
+    [_callbackBlockSet addObject:updateLocationsCallBack];
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -90,12 +91,15 @@
     [tempLocation setCLLocation:cllocation];
 
     //开始接受位置更新后，才开始收集位置数据
-    if (_updateLocationsCallBack)
+    if (_callbackBlockSet.count > 0)
     {
         [_locationMutableArray addObject:tempLocation];
     
         NSLog(@"位置改变！");
-        _updateLocationsCallBack(_locationMutableArray, nil);
+        [_callbackBlockSet enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+            UpdateLocationsCallBack callback = obj;
+            callback(_locationMutableArray, nil);
+        }];
     }
     else//刚启动应用的时候，该回调可能会连续多次回调，取最后一个回调的值（最后一次回调的应该是相比前面的准确的）
     {
