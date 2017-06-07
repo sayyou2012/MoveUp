@@ -19,8 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *averageSpeed;
 
-@property (assign, nonatomic) CLLocationCoordinate2D lastCoordinate;
-
 @end
 
 @implementation MovingTraceMapViewController
@@ -40,7 +38,6 @@
     if ([self.delegate respondsToSelector:@selector(getLastLocationCoordinate)])
     {
         currentLocationCoordinate = [self.delegate getLastLocationCoordinate];
-        self.lastCoordinate = currentLocationCoordinate;
     }
     
     MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
@@ -61,7 +58,6 @@
             CLLocationCoordinate2D coordinates[2];
             coordinates[0] = tempLeftModel.coordinate;
             coordinates[1] = tempRightModel.coordinate;
-            self.lastCoordinate = coordinates[1];
             MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coordinates count:2];
             [_mapView addOverlay:polyline];
         }
@@ -70,28 +66,23 @@
     
     //    _mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
     
-    //    if ([self.delegate respondsToSelector:@selector(receiveUpdateLocations:)])
-    //    {
-    //        __weak typeof(self) weakSelf = self;
-    //        [self.delegate receiveUpdateLocations:^(NSArray *locations, NSError *error) {
-    //            //最后一个位置数据
-    //            id<LocationProtocolInMovingVC> lastModel = locations.lastObject;
-    //            //倒数第二个位置数据
-    //            id<LocationProtocolInMovingVC> secondFromLast = locations[locations.count - 2];
-    //            if (locations.count > 1)
-    //            {
-    //                CLLocationDistance distance = [lastModel distanceFrom:secondFromLast];
-    //                if (distance <= 0 || _secondCount <= 0)
-    //                {
-    //                    return;
-    //                }
-    //
-    //                _distance += distance;
-    //                [weakSelf private_updateUI];
-    //                _accuracyLabel.text = [NSString stringWithFormat:@"%f", lastModel.horizontalAccuracy];
-    //            }
-    //        }];
-    //    }
+    if ([self.delegate respondsToSelector:@selector(receiveUpdateLocations:)])
+    {
+//        __weak typeof(self) weakSelf = self;
+        [self.delegate receiveUpdateLocations:^(NSArray *locations, NSError *error) {
+            //最后一个位置数据
+            id<LocationProtocolInMovingTraceMapVC> lastModel = locations.lastObject;
+            //倒数第二个位置数据
+            id<LocationProtocolInMovingTraceMapVC> secondFromLast = locations[locations.count - 2];
+            
+            //绘制运动轨迹
+            CLLocationCoordinate2D coordinates[2];
+            coordinates[0] = secondFromLast.coordinate;
+            coordinates[1] = lastModel.coordinate;
+            MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coordinates count:2];
+            [_mapView addOverlay:polyline];
+        }];
+    }
 }
 
 #pragma mark - MKMapViewDelegate
@@ -115,16 +106,16 @@
     [mapView setCenterCoordinate:userLocation.coordinate animated:YES];
     
     //绘制运动轨迹
-    CLLocationCoordinate2D coordinates[2];
-    CLLocationCoordinate2D coordinate = _lastCoordinate;
-    coordinates[0] = coordinate;
-    coordinates[1] = userLocation.coordinate;
-    self.lastCoordinate = coordinates[1];
-    MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coordinates count:2];
-    
-    [UIView animateWithDuration:0.2f animations:^{
-        [_mapView addOverlay:polyline];
-    }];
+//    CLLocationCoordinate2D coordinates[2];
+//    CLLocationCoordinate2D coordinate = _lastCoordinate;
+//    coordinates[0] = coordinate;
+//    coordinates[1] = userLocation.coordinate;
+//    self.lastCoordinate = coordinates[1];
+//    MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coordinates count:2];
+//    
+//    [UIView animateWithDuration:0.2f animations:^{
+//        [_mapView addOverlay:polyline];
+//    }];
 }
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay

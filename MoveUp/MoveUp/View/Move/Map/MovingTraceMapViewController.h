@@ -9,6 +9,8 @@
 #import "BaseViewController.h"
 #import "LocationProtocolInMovingTraceMapVC.h"
 
+typedef void(^UpdateLocationsCallBack)(NSArray *locations, NSError *error);
+
 @protocol MovingTraceMapViewControllerDelegate <BaseViewControllerDelegate>
 
 /**
@@ -16,11 +18,17 @@
  */
 - (CLLocationCoordinate2D)getLastLocationCoordinate;
 
-
 /**
  获取用户运动过程中记录下来的所有位置的数组
  */
 - (NSArray *)getAllLocations;
+
+/**
+ 接受用户位置更新
+ 
+ @param updateLocationsCallBack 用户位置更新的回调
+ */
+- (void)receiveUpdateLocations:(UpdateLocationsCallBack)updateLocationsCallBack;
 
 @end
 
