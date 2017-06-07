@@ -11,5 +11,6 @@
 
 @protocol LocationProtocolInMovingTraceMapVC <NSObject>
 
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;//坐标
 
 @end

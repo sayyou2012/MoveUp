@@ -105,7 +105,7 @@
 
 #pragma mark - Getter
 
-- (NSArray<Location *> *)locationArray
+- (NSArray<Location *> *)allLocations
 {
     return [_locationMutableArray copy];
 }

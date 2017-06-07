@@ -48,6 +48,50 @@
     [_mapView setRegion:region];
     
 //    _mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
+    
+    //根据记录下来的所有的位置点绘制轨迹
+    NSArray *allLocations = [self.delegate getAllLocations];
+    [allLocations enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (idx >= 1)
+        {
+            id<LocationProtocolInMovingTraceMapVC> tempLeftModel = allLocations[idx - 1];
+            id<LocationProtocolInMovingTraceMapVC> tempRightModel = allLocations[idx];
+            
+            //绘制运动轨迹
+            CLLocationCoordinate2D coordinates[2];
+            coordinates[0] = tempLeftModel.coordinate;
+            coordinates[1] = tempRightModel.coordinate;
+            self.lastCoordinate = coordinates[1];
+            MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coordinates count:2];
+            [_mapView addOverlay:polyline];
+        }
+    }];
+    
+    
+    //    _mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
+    
+    //    if ([self.delegate respondsToSelector:@selector(receiveUpdateLocations:)])
+    //    {
+    //        __weak typeof(self) weakSelf = self;
+    //        [self.delegate receiveUpdateLocations:^(NSArray *locations, NSError *error) {
+    //            //最后一个位置数据
+    //            id<LocationProtocolInMovingVC> lastModel = locations.lastObject;
+    //            //倒数第二个位置数据
+    //            id<LocationProtocolInMovingVC> secondFromLast = locations[locations.count - 2];
+    //            if (locations.count > 1)
+    //            {
+    //                CLLocationDistance distance = [lastModel distanceFrom:secondFromLast];
+    //                if (distance <= 0 || _secondCount <= 0)
+    //                {
+    //                    return;
+    //                }
+    //
+    //                _distance += distance;
+    //                [weakSelf private_updateUI];
+    //                _accuracyLabel.text = [NSString stringWithFormat:@"%f", lastModel.horizontalAccuracy];
+    //            }
+    //        }];
+    //    }
 }
 
 #pragma mark - MKMapViewDelegate

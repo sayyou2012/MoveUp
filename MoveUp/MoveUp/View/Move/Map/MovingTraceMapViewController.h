@@ -11,8 +11,16 @@
 
 @protocol MovingTraceMapViewControllerDelegate <BaseViewControllerDelegate>
 
-//获取用户最新的位置信息
+/**
+ 获取用户最新的位置信息
+ */
 - (CLLocationCoordinate2D)getLastLocationCoordinate;
+
+
+/**
+ 获取用户运动过程中记录下来的所有位置的数组
+ */
+- (NSArray *)getAllLocations;
 
 @end
 
