@@ -79,9 +79,10 @@
 {
     CLLocation *cllocation = locations.firstObject;
     
-    //水平方向上的精度
+    //水平方向上的精确度
     CLLocationAccuracy horizontalAccuracy = cllocation.horizontalAccuracy;
-    if (horizontalAccuracy < 0)
+    //如果精确度大于等于50米，则认为当前位置定位是不准确的，暂时先以50为临界值
+    if (horizontalAccuracy < 0 || horizontalAccuracy >= 50)
     {
         //TODO:在界面给予提示？比如请到空旷地方
         return;
