@@ -54,6 +54,12 @@
 
 }
 
+- (void)viewDidDisappear
+{
+    //TODO: 根据是否在运动来决定是否清空，因为从正在运动界面push到地图界面时，也会回调到该方法，但此时不应该设置为nil
+    self.movingVC = nil;
+}
+
 - (void)receiveUpdateLocations:(UpdateLocationsCallBack)updateLocationsCallBack
 {
     [[ClientControl sharedInstance].client receiveUpdateLocations:updateLocationsCallBack];
@@ -68,7 +74,7 @@
 {
     [self.movingVC.navigationController popViewControllerAnimated:YES];
     [[ClientControl sharedInstance].client stopUpdatingLocation];
-    self.movingVC = nil;
+    
 }
 
 - (void)presentMovingTraceMap

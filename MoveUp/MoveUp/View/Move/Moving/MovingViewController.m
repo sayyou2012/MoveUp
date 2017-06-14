@@ -60,14 +60,14 @@
             if (locations.count > 1)
             {
                 CLLocationDistance distance = [lastModel distanceFrom:secondFromLast];
-                if (distance <= 0 || _secondCount <= 0)
+                if (distance <= 0 || weakSelf.secondCount <= 0)
                 {
                     return;
                 }
                 
-                _distance += distance;
+                weakSelf.distance += distance;
                 [weakSelf private_updateUI];
-                _accuracyLabel.text = [NSString stringWithFormat:@"%f", lastModel.horizontalAccuracy];
+                weakSelf.accuracyLabel.text = [NSString stringWithFormat:@"%f", lastModel.horizontalAccuracy];
             }
         }];
     }
@@ -122,7 +122,6 @@
     if ([self.delegate respondsToSelector:@selector(stopMove)])
     {
         [_timer invalidate];
-        _timer = nil;
         [self.delegate stopMove];
     }
 }
