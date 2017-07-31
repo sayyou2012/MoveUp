@@ -56,8 +56,12 @@
 
 - (void)viewDidDisappear
 {
-    //TODO: 根据是否在运动来决定是否清空，因为从正在运动界面push到地图界面时，也会回调到该方法，但此时不应该设置为nil
-    self.movingVC = nil;
+    //从正在运动界面push到地图界面时(此时的topVC为MovingTraceMapViewController)，也会回调到该方法，但此时不应该设置为nil
+    UIViewController *topVC = self.viewController.navigationController.topViewController;
+    if (!topVC)
+    {
+       self.movingVC = nil;
+    }
 }
 
 - (void)receiveUpdateLocations:(UpdateLocationsCallBack)updateLocationsCallBack
